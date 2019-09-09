@@ -1,0 +1,8 @@
+syntax = "proto3";
+package pbtest;
+
+import "github.com/aperturerobotics/genproto/src/other/other.proto";
+
+message TestMessage {
+  other.OtherMessage other_message = 1;
+}
