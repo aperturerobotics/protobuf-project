@@ -19,7 +19,7 @@ $(PROTOC_GEN_GO):
 	cd ./hack; \
 	go build -v \
 		-o ./bin/protoc-gen-go \
-		github.com/golang/protobuf/protoc-gen-go
+		google.golang.org/protobuf/cmd/protoc-gen-go
 
 $(PROTOC_GEN_GO_GRPC):
 	cd ./hack; \
@@ -58,7 +58,8 @@ $(GO_MOD_OUTDATED):
 		github.com/psampaz/go-mod-outdated
 
 .PHONY: gengo
-gengo: vendor $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC_GEN_VTPROTOBUF)
+gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC_GEN_VTPROTOBUF)
+	go mod vendor
 	shopt -s globstar; \
 	set -eo pipefail; \
 	export PROJECT=$$(go list -m); \
