@@ -4,7 +4,6 @@ SHELL:=bash
 ESBUILD=hack/bin/esbuild
 PROTOWRAP=hack/bin/protowrap
 PROTOC_GEN_GO=hack/bin/protoc-gen-go-lite
-PROTOC_GEN_STARPC=hack/bin/protoc-gen-go-starpc
 GOIMPORTS=hack/bin/goimports
 GOFUMPT=hack/bin/gofumpt
 GOLANGCI_LINT=hack/bin/golangci-lint
@@ -62,17 +61,11 @@ $(GO_MOD_OUTDATED):
 		-o ./bin/go-mod-outdated \
 		github.com/psampaz/go-mod-outdated
 
-$(PROTOC_GEN_STARPC):
-	cd ./hack; \
-	go build -v \
-		-o ./bin/protoc-gen-go-starpc \
-		github.com/aperturerobotics/starpc/cmd/protoc-gen-go-starpc
-
 node_modules:
 	yarn install
 
 .PHONY: genproto
-genproto: vendor node_modules $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_STARPC)
+genproto: vendor node_modules $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO)
 	shopt -s globstar; \
 	set -eo pipefail; \
 	export PROJECT=$$(go list -m); \
@@ -85,16 +78,11 @@ genproto: vendor node_modules $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTO
 		$(PROTOWRAP) \
 			-I $${OUT} \
 			--plugin=./node_modules/.bin/protoc-gen-es-lite \
-			--plugin=./node_modules/.bin/protoc-gen-es-starpc \
 			--go-lite_out=$${OUT} \
 			--go-lite_opt=features=marshal+unmarshal+size+equal+json+clone \
-			--go-starpc_out=$${OUT} \
 			--es-lite_out=$${OUT} \
 			--es-lite_opt target=ts \
 			--es-lite_opt ts_nocheck=false \
-			--es-starpc_out=$${OUT} \
-			--es-starpc_opt target=ts \
-			--es-starpc_opt ts_nocheck=false \
 			--proto_path $${OUT} \
 			--print_structure \
 			--only_specified_files \

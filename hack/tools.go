@@ -8,8 +8,6 @@ import (
 	_ "github.com/aperturerobotics/goprotowrap/cmd/protowrap"
 	// _ imports protoc-gen-go-lite
 	_ "github.com/aperturerobotics/protobuf-go-lite/cmd/protoc-gen-go-lite"
-	// _ imports protoc-gen-starpc
-	_ "github.com/aperturerobotics/starpc/cmd/protoc-gen-go-starpc"
 
 	// _ imports golangci-lint
 	_ "github.com/golangci/golangci-lint/pkg/golinters"
