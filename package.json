@@ -1,13 +1,12 @@
 {
   "name": "@aperturerobotics/protobuf-project",
   "version": "0.0.0",
-  "description": "Example of a Starpc RPC project.",
+  "description": "Example of a Protobuf RPC project with DRPC.",
   "license": "MIT",
   "scripts": {
     "build": "tsc --project tsconfig.build.json --outDir ./dist/",
     "check": "npm run typecheck",
     "typecheck": "tsc --noEmit",
-    "deps": "depcheck --ignore-patterns=.eslintrc.js,package.json --ignores depcheck,patch-package,prettier,typescript,bufferutil,utf-8-validate,starpc,ts-proto,ts-poet,@aperturerobotics/ts-common,@go/github.com",
     "codegen": "npm run gen",
     "ci": "npm run build && npm run lint:js && npm run lint:go",
     "format": "prettier --write './!(vendor|dist)/**/(*.ts|*.tsx|*.html|*.css)'",
@@ -28,7 +27,6 @@
   },
   "devDependencies": {
     "@aperturerobotics/ts-common": "^0.8.1",
-    "depcheck": "^1.4.3",
     "patch-package": "^8.0.0",
     "prettier": "^3.0.3",
     "ts-poet": "6.6.0",
@@ -37,12 +35,9 @@
   },
   "dependencies": {
     "@aperturerobotics/ts-proto-common-types": "^0.2.0",
-    "@aptre/it-ws": "^1.0.0",
     "bufferutil": "^4.0.7",
-    "it-pushable": "^3.2.3",
     "long": "^5.2.3",
     "protobufjs": "^7.2.4",
-    "starpc": "^0.22.1",
     "utf-8-validate": "^6.0.3"
   }
 }

@@ -4,7 +4,7 @@ SHELL:=bash
 ESBUILD=hack/bin/esbuild
 PROTOWRAP=hack/bin/protowrap
 PROTOC_GEN_GO=hack/bin/protoc-gen-go
-PROTOC_GEN_STARPC=hack/bin/protoc-gen-go-starpc
+PROTOC_GEN_DRPC=hack/bin/protoc-gen-go-drpc
 PROTOC_GEN_VTPROTO=hack/bin/protoc-gen-go-vtproto
 GOIMPORTS=hack/bin/goimports
 GOLANGCI_LINT=hack/bin/golangci-lint
@@ -32,17 +32,17 @@ $(PROTOC_GEN_GO):
 		-o ./bin/protoc-gen-go \
 		google.golang.org/protobuf/cmd/protoc-gen-go
 
+$(PROTOC_GEN_DRPC):
+	cd ./hack; \
+	go build -v \
+		-o ./bin/protoc-gen-go-drpc \
+		storj.io/drpc/cmd/protoc-gen-go-drpc
+
 $(PROTOC_GEN_VTPROTO):
 	cd ./hack; \
 	go build -v \
 		-o ./bin/protoc-gen-go-vtproto \
 		github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto
-
-$(PROTOC_GEN_STARPC):
-	cd ./hack; \
-	go build -v \
-		-o ./bin/protoc-gen-go-starpc \
-		github.com/aperturerobotics/starpc/cmd/protoc-gen-go-starpc
 
 $(GOIMPORTS):
 	cd ./hack; \
@@ -68,11 +68,8 @@ $(GO_MOD_OUTDATED):
 		-o ./bin/go-mod-outdated \
 		github.com/psampaz/go-mod-outdated
 
-# Add --go-grpc_out=$$(pwd)/vendor to use the GRPC protoc generator.
-# .. and remove the "grpc" option from the vtprotobuf features list.
-
 .PHONY: gengo
-gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO) $(PROTOC_GEN_STARPC)
+gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO) $(PROTOC_GEN_DRPC)
 	shopt -s globstar; \
 	set -eo pipefail; \
 	export PROJECT=$$(go list -m); \
@@ -83,9 +80,12 @@ gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO) $(PROTOC
 	$(PROTOWRAP) \
 		-I $$(pwd)/vendor \
 		--go_out=$$(pwd)/vendor \
+		--go-drpc_out=$$(pwd)/vendor \
+		--go-drpc_opt=json=false \
+		--go-drpc_opt=protolib=github.com/golang/protobuf/proto \
+		--go-drpc_opt=protolib=github.com/planetscale/vtprotobuf/codec/drpc \
 		--go-vtproto_out=$$(pwd)/vendor \
 		--go-vtproto_opt=features=marshal+unmarshal+size+equal+clone \
-		--go-starpc_out=$$(pwd)/vendor \
 		--proto_path $$(pwd)/vendor \
 		--print_structure \
 		--only_specified_files \
