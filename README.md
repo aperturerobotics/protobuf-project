@@ -21,6 +21,13 @@ The available make targets are:
  - `list`: list go module dependencies
  - `outdated`: list outdated go module dependencies
 
+## Branches
+
+Other available branches:
+
+ - **twirp**: uses the twirp rpc library instead of grpc.
+ - **drpc**: uses the drpc rpc library instead of grpc.
+
 ## Usage
 
 Protobuf imports use Go paths and package names:
