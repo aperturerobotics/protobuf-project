@@ -14,7 +14,7 @@ You can create a new repository with this template [on GitHub].
 
 Protobuf imports use Go paths and package names:
 
-```
+```protobuf
 syntax = "proto3";
 package example;
 
@@ -29,9 +29,9 @@ message GetBusInfoResponse {
 
 To generate the protobuf files:
 
-```
-git add -A
-make gengo
+```bash
+$ git add -A
+$ make gengo
 ```
 
 The Makefile will download the tools using Go to a bin dir.
