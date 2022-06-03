@@ -10,6 +10,17 @@ You can create a new repository with this template [on GitHub].
 
 [on GitHub]: https://github.com/aperturerobotics/protobuf-project
 
+## Makefile
+
+The available make targets are:
+
+ - `gengo`: Generate protobuf files.
+ - `test`: run go test -v ./...
+ - `lint`: run golangci-lint on the project.
+ - `fix`: run golangci-lint --fix on the project.
+ - `list`: list go module dependencies
+ - `outdated`: list outdated go module dependencies
+
 ## Usage
 
 Protobuf imports use Go paths and package names:
