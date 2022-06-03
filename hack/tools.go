@@ -16,8 +16,8 @@ import (
 	_ "github.com/golangci/golangci-lint/pkg/commands"
 	// _ imports go-mod-outdated
 	_ "github.com/psampaz/go-mod-outdated"
-	// _ imports protoc-gen-starpc
-	_ "github.com/aperturerobotics/starpc/cmd/protoc-gen-go-starpc"
+	// _ imports protoc-gen-twirp
+	_ "github.com/twitchtv/twirp/protoc-gen-twirp"
 	// _ imports esbuild
 	_ "github.com/evanw/esbuild/cmd/esbuild"
 )
