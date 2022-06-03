@@ -1,6 +1,6 @@
-## genproto template
+## protobuf-project template
 
-This is a project template for projects using protobuf.
+This is a repository template for projects using protobuf.
 
 Uses a Makefile to download tools to ./hack/bin.
 
@@ -8,7 +8,7 @@ Includes targets for linting, checking outdated modules, etc.
 
 You can create a new repository with this template [on GitHub].
 
-[on GitHub]: https://github.com/aperturerobotics/genproto
+[on GitHub]: https://github.com/aperturerobotics/protobuf-project
 
 ## Usage
 
@@ -38,7 +38,7 @@ The Makefile will download the tools using Go to a bin dir.
 
 ## Support
 
-genproto is supported by Aperture Robotics, LLC.
+`protobuf-project` is supported by Aperture Robotics, LLC.
 
 Community contributions and discussion are welcomed!
 
