@@ -7,8 +7,8 @@ import (
 	_ "github.com/golang/protobuf/proto"
 	// _ imports protoc-gen-go-vtproto
 	_ "github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto"
-	// _ imports drpc
-	_ "storj.io/drpc/cmd/protoc-gen-go-drpc"
+	// _ imports grpc
+	_ "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
 	// _ imports golangci-lint
 	_ "github.com/golangci/golangci-lint/pkg/golinters"
 	// _ imports golangci-lint commands

@@ -2,7 +2,7 @@
 
 PROTOWRAP=hack/bin/protowrap
 PROTOC_GEN_GO=hack/bin/protoc-gen-go
-PROTOC_GEN_GO_DRPC=hack/bin/protoc-gen-go-drpc
+PROTOC_GEN_GO_GRPC=hack/bin/protoc-gen-go-grpc
 PROTOC_GEN_VTPROTOBUF=hack/bin/protoc-gen-go-vtprotobuf
 GOIMPORTS=hack/bin/goimports
 GOLANGCI_LINT=hack/bin/golangci-lint
@@ -21,11 +21,11 @@ $(PROTOC_GEN_GO):
 		-o ./bin/protoc-gen-go \
 		github.com/golang/protobuf/protoc-gen-go
 
-$(PROTOC_GEN_GO_DRPC):
+$(PROTOC_GEN_GO_GRPC):
 	cd ./hack; \
 	go build -v \
-		-o ./bin/protoc-gen-go-drpc \
-		storj.io/drpc/cmd/protoc-gen-go-drpc
+		-o ./bin/protoc-gen-go-grpc \
+		google.golang.org/grpc/cmd/protoc-gen-go-grpc
 
 $(PROTOC_GEN_VTPROTOBUF):
 	cd ./hack; \
@@ -58,7 +58,7 @@ $(GO_MOD_OUTDATED):
 		github.com/psampaz/go-mod-outdated
 
 .PHONY: gengo
-gengo: vendor $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_DRPC) $(PROTOC_GEN_VTPROTOBUF)
+gengo: vendor $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC_GEN_VTPROTOBUF)
 	shopt -s globstar; \
 	set -eo pipefail; \
 	export PROJECT=$$(go list -m); \
@@ -69,10 +69,7 @@ gengo: vendor $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_DRPC) $
 	$(PROTOWRAP) \
 		-I $$(pwd)/vendor \
 		--go_out=$$(pwd)/vendor \
-		--go-drpc_out=$$(pwd)/vendor \
-		--go-drpc_opt=json=false \
-		--go-drpc_opt=protolib=github.com/golang/protobuf/proto \
-		--go-drpc_opt=protolib=github.com/planetscale/vtprotobuf/codec/drpc \
+		--go-grpc_out=$$(pwd)/vendor \
 		--go-vtprotobuf_out=$$(pwd)/vendor \
 		--proto_path $$(pwd)/vendor \
 		--print_structure \

@@ -13,7 +13,7 @@ require (
 	github.com/planetscale/vtprotobuf v0.3.1-0.20220531071333-dfd3d322ffb6
 	github.com/psampaz/go-mod-outdated v0.8.0
 	github.com/square/goprotowrap v0.0.0-20210611190042-204ec2527e6f
-	storj.io/drpc v0.0.30
+	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
 )
 
 require (
