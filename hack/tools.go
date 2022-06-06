@@ -3,8 +3,8 @@ package hack
 import (
 	// _ imports protowrap
 	_ "github.com/square/goprotowrap"
-	// _ imports protoc-gen-go
-	_ "github.com/golang/protobuf/proto"
+	// _ imports grpc
+	_ "google.golang.org/protobuf/cmd/protoc-gen-go"
 	// _ imports protoc-gen-go-vtproto
 	_ "github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto"
 	// _ imports grpc
