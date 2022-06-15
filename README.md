@@ -1,5 +1,9 @@
 ## protobuf-project template
 
+**This branch implements a starpc service and demo.**
+
+To run the demo: **yarn** then **yarn run demo**.
+
 This is a repository template for projects using protobuf.
 
 Supports **Go and TypeScript** with Go-style import paths.

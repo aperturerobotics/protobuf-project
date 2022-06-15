@@ -2,7 +2,7 @@
 
 PROTOWRAP=hack/bin/protowrap
 PROTOC_GEN_GO=hack/bin/protoc-gen-go
-PROTOC_GEN_GO_GRPC=hack/bin/protoc-gen-go-grpc
+PROTOC_GEN_STARPC=hack/bin/protoc-gen-go-starpc
 PROTOC_GEN_VTPROTO=hack/bin/protoc-gen-go-vtproto
 GOIMPORTS=hack/bin/goimports
 GOLANGCI_LINT=hack/bin/golangci-lint
@@ -19,19 +19,19 @@ $(PROTOC_GEN_GO):
 	cd ./hack; \
 	go build -v \
 		-o ./bin/protoc-gen-go \
-		google.golang.org/protobuf/cmd/protoc-gen-go
-
-$(PROTOC_GEN_GO_GRPC):
-	cd ./hack; \
-	go build -v \
-		-o ./bin/protoc-gen-go-grpc \
-		google.golang.org/grpc/cmd/protoc-gen-go-grpc
+		github.com/golang/protobuf/protoc-gen-go
 
 $(PROTOC_GEN_VTPROTO):
 	cd ./hack; \
 	go build -v \
 		-o ./bin/protoc-gen-go-vtproto \
 		github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto
+
+$(PROTOC_GEN_STARPC):
+	cd ./hack; \
+	go build -v \
+		-o ./bin/protoc-gen-go-starpc \
+		github.com/aperturerobotics/starpc/cmd/protoc-gen-go-starpc
 
 $(GOIMPORTS):
 	cd ./hack; \
@@ -61,7 +61,7 @@ $(GO_MOD_OUTDATED):
 # .. and remove the "grpc" option from the vtprotobuf features list.
 
 .PHONY: gengo
-gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC_GEN_VTPROTO)
+gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO) $(PROTOC_GEN_STARPC)
 	go mod vendor
 	shopt -s globstar; \
 	set -eo pipefail; \
@@ -74,7 +74,8 @@ gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC
 		-I $$(pwd)/vendor \
 		--go_out=$$(pwd)/vendor \
 		--go-vtproto_out=$$(pwd)/vendor \
-		--go-vtproto_opt=features=marshal+unmarshal+size+equal+grpc \
+		--go-vtproto_opt=features=marshal+unmarshal+size+equal \
+		--go-starpc_out=$$(pwd)/vendor \
 		--proto_path $$(pwd)/vendor \
 		--print_structure \
 		--only_specified_files \
@@ -137,3 +138,8 @@ fix: $(GOLANGCI_LINT)
 .PHONY: test
 test:
 	go test -v ./...
+
+.PHONY: demo
+demo: node_modules vendor
+	cd ./demo && \
+		bash ./demo.bash

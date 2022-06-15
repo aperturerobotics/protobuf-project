@@ -9,6 +9,8 @@ import (
 	io "io"
 	bits "math/bits"
 
+	echo "github.com/aperturerobotics/starpc/echo"
+	proto "google.golang.org/protobuf/proto"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
@@ -24,6 +26,13 @@ func (this *OtherMessage) EqualVT(that *OtherMessage) bool {
 		return that == nil || that.String() == ""
 	} else if that == nil {
 		return this.String() == ""
+	}
+	if equal, ok := interface{}(this.EchoMsg).(interface{ EqualVT(*echo.EchoMsg) bool }); ok {
+		if !equal.EqualVT(that.EchoMsg) {
+			return false
+		}
+	} else if !proto.Equal(this.EchoMsg, that.EchoMsg) {
+		return false
 	}
 	return string(this.unknownFields) == string(that.unknownFields)
 }
@@ -58,6 +67,28 @@ func (m *OtherMessage) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
 	}
+	if m.EchoMsg != nil {
+		if vtmsg, ok := interface{}(m.EchoMsg).(interface {
+			MarshalToSizedBufferVT([]byte) (int, error)
+		}); ok {
+			size, err := vtmsg.MarshalToSizedBufferVT(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarint(dAtA, i, uint64(size))
+		} else {
+			encoded, err := proto.Marshal(m.EchoMsg)
+			if err != nil {
+				return 0, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = encodeVarint(dAtA, i, uint64(len(encoded)))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
 	return len(dAtA) - i, nil
 }
 
@@ -78,6 +109,16 @@ func (m *OtherMessage) SizeVT() (n int) {
 	}
 	var l int
 	_ = l
+	if m.EchoMsg != nil {
+		if size, ok := interface{}(m.EchoMsg).(interface {
+			SizeVT() int
+		}); ok {
+			l = size.SizeVT()
+		} else {
+			l = proto.Size(m.EchoMsg)
+		}
+		n += 1 + l + sov(uint64(l))
+	}
 	n += len(m.unknownFields)
 	return n
 }
@@ -117,6 +158,50 @@ func (m *OtherMessage) UnmarshalVT(dAtA []byte) error {
 			return fmt.Errorf("proto: OtherMessage: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field EchoMsg", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLength
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLength
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.EchoMsg == nil {
+				m.EchoMsg = &echo.EchoMsg{}
+			}
+			if unmarshal, ok := interface{}(m.EchoMsg).(interface {
+				UnmarshalVT([]byte) error
+			}); ok {
+				if err := unmarshal.UnmarshalVT(dAtA[iNdEx:postIndex]); err != nil {
+					return err
+				}
+			} else {
+				if err := proto.Unmarshal(dAtA[iNdEx:postIndex], m.EchoMsg); err != nil {
+					return err
+				}
+			}
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skip(dAtA[iNdEx:])

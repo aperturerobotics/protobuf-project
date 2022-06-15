@@ -12,9 +12,10 @@ require (
 	github.com/planetscale/vtprotobuf v0.3.1-0.20220531071333-dfd3d322ffb6
 	github.com/psampaz/go-mod-outdated v0.8.0
 	github.com/square/goprotowrap v0.0.0-20210611190042-204ec2527e6f
-	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
-	google.golang.org/protobuf v1.27.1
+	google.golang.org/protobuf v1.28.0
 )
+
+require github.com/aperturerobotics/starpc v0.1.1
 
 require (
 	4d63.com/gochecknoglobals v0.1.0 // indirect
@@ -155,7 +156,7 @@ require (
 	gitlab.com/bosi/decorder v0.2.1 // indirect
 	golang.org/x/mod v0.5.1 // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
-	golang.org/x/sys v0.0.0-20220111092808-5a964db01320 // indirect
+	golang.org/x/sys v0.0.0-20220422013727-9388b58f7150 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/tools v0.1.9 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect

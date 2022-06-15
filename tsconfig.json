@@ -16,7 +16,8 @@
     "esModuleInterop": true
   },
   "include": [
-    "example"
+    "example",
+    "demo"
   ],
   "ts-node": {
     "esm": true,

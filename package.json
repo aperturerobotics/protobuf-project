@@ -1,19 +1,20 @@
 {
   "name": "@aperturerobotics/protobuf-project",
   "version": "0.0.0",
-  "description": "Example of a Protobuf project.",
+  "description": "Example of a Starpc RPC project.",
   "license": "MIT",
   "scripts": {
     "build": "tsc --project tsconfig.build.json --outDir ./dist/",
     "check": "tsc",
     "codegen": "npm run gen",
     "ci": "npm run build && npm run lint:js && npm run lint:go",
-    "format": "prettier --write './example/(*.ts|*.tsx|*.js|*.html|*.css)'",
+    "format": "prettier --write './{example,demo}/(*.ts|*.tsx|*.js|*.html|*.css)'",
     "gen": "make genproto",
     "test": "make test && npm run check",
+    "demo": "make demo",
     "lint": "npm run lint:go && npm run lint:js",
     "lint:go": "make lint",
-    "lint:js": "eslint -c .eslintrc.js --ext .ts ./example/**/*.ts",
+    "lint:js": "eslint -c .eslintrc.js --ext .ts ./{example,demo}/**/*.ts",
     "postinstall": "patch-package",
     "precommit": "npm run format"
   },
@@ -25,6 +26,7 @@
     "@types/varint": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
+    "esbuild": "^0.14.44",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^21.0.1",
@@ -36,8 +38,17 @@
     "typescript": "^4.7.3"
   },
   "dependencies": {
+    "@libp2p/mplex": "^2.0.0",
     "event-iterator": "^2.0.0",
+    "isomorphic-ws": "^4.0.1",
+    "it-length-prefixed": "^7.0.1",
+    "it-pipe": "^2.0.3",
+    "it-pushable": "^3.0.0",
+    "it-stream-types": "^1.0.4",
+    "it-ws": "^5.0.2",
     "protobufjs": "^6.11.3",
-    "rxjs": "^7.5.5"
+    "rxjs": "^7.5.5",
+    "starpc": "^0.1.3",
+    "ws": "^8.8.0"
   }
 }

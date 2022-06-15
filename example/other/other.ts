@@ -1,20 +1,27 @@
 /* eslint-disable */
 import Long from 'long'
 import * as _m0 from 'protobufjs/minimal'
+import { EchoMsg } from '../../vendor/github.com/aperturerobotics/starpc/echo/echo'
 
 export const protobufPackage = 'other'
 
-export interface OtherMessage {}
+export interface OtherMessage {
+  /** EchoMsg is the example echo message. */
+  echoMsg: EchoMsg | undefined
+}
 
 function createBaseOtherMessage(): OtherMessage {
-  return {}
+  return { echoMsg: undefined }
 }
 
 export const OtherMessage = {
   encode(
-    _: OtherMessage,
+    message: OtherMessage,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
+    if (message.echoMsg !== undefined) {
+      EchoMsg.encode(message.echoMsg, writer.uint32(10).fork()).ldelim()
+    }
     return writer
   },
 
@@ -25,6 +32,9 @@ export const OtherMessage = {
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
+        case 1:
+          message.echoMsg = EchoMsg.decode(reader, reader.uint32())
+          break
         default:
           reader.skipType(tag & 7)
           break
@@ -33,19 +43,31 @@ export const OtherMessage = {
     return message
   },
 
-  fromJSON(_: any): OtherMessage {
-    return {}
+  fromJSON(object: any): OtherMessage {
+    return {
+      echoMsg: isSet(object.echoMsg)
+        ? EchoMsg.fromJSON(object.echoMsg)
+        : undefined,
+    }
   },
 
-  toJSON(_: OtherMessage): unknown {
+  toJSON(message: OtherMessage): unknown {
     const obj: any = {}
+    message.echoMsg !== undefined &&
+      (obj.echoMsg = message.echoMsg
+        ? EchoMsg.toJSON(message.echoMsg)
+        : undefined)
     return obj
   },
 
   fromPartial<I extends Exact<DeepPartial<OtherMessage>, I>>(
-    _: I
+    object: I
   ): OtherMessage {
     const message = createBaseOtherMessage()
+    message.echoMsg =
+      object.echoMsg !== undefined && object.echoMsg !== null
+        ? EchoMsg.fromPartial(object.echoMsg)
+        : undefined
     return message
   },
 }
@@ -86,4 +108,8 @@ export type Exact<P, I extends P> = P extends Builtin
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any
   _m0.configure()
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined
 }

@@ -1,4 +1,9 @@
 syntax = "proto3";
 package other;
 
-message OtherMessage {}
+import "github.com/aperturerobotics/starpc/echo/echo.proto";
+
+message OtherMessage {
+  // EchoMsg is the example echo message.
+  .echo.EchoMsg echo_msg = 1;
+}
