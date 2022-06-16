@@ -14,7 +14,7 @@
     "lint": "npm run lint:go && npm run lint:js",
     "lint:go": "make lint",
     "lint:js": "eslint -c .eslintrc.js --ext .ts ./example/**/*.ts",
-    "postinstall": "patch-package",
+    "prepare": "patch-package && go mod vendor",
     "precommit": "npm run format"
   },
   "prettier": {
