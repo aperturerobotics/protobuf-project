@@ -32,9 +32,10 @@ To generate the TypeScript and Go code:
 
 Other available branches:
 
- - **twirp**: uses the twirp rpc library instead of grpc.
  - **drpc**: uses the drpc rpc library instead of grpc.
+ - **grpc**: uses the grpc rpc protoc instead of vtprotobuf.
  - **starpc**: uses the [starpc] rpc library instead of grpc.
+ - **twirp**: uses the twirp rpc library instead of grpc.
  
 [starpc**: https://github.com/aperturerobotics/starpc
 
