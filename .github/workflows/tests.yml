@@ -34,5 +34,3 @@ jobs:
         run: yarn run lint:js
       - name: Test Go
         run: make test
-      - name: Test integration of Go and TypeScript
-        run: make integration
