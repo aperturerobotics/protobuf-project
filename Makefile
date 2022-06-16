@@ -57,6 +57,9 @@ $(GO_MOD_OUTDATED):
 		-o ./bin/go-mod-outdated \
 		github.com/psampaz/go-mod-outdated
 
+# Add --go-grpc_out=$$(pwd)/vendor to use the GRPC protoc generator.
+# .. and remove the "grpc" option from the vtprotobuf features list.
+
 .PHONY: gengo
 gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC_GEN_VTPROTO)
 	go mod vendor
@@ -70,9 +73,8 @@ gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC
 	$(PROTOWRAP) \
 		-I $$(pwd)/vendor \
 		--go_out=$$(pwd)/vendor \
-		--go-grpc_out=$$(pwd)/vendor \
 		--go-vtproto_out=$$(pwd)/vendor \
-    --go-vtproto_opt=features=marshal+unmarshal+size+equal \
+		--go-vtproto_opt=features=marshal+unmarshal+size+equal+grpc \
 		--proto_path $$(pwd)/vendor \
 		--print_structure \
 		--only_specified_files \
