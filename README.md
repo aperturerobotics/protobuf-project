@@ -37,7 +37,7 @@ Other available branches:
  - **starpc**: uses the [starpc] rpc library instead of grpc.
  - **twirp**: uses the twirp rpc library instead of grpc.
  
-[starpc**: https://github.com/aperturerobotics/starpc
+[starpc]: https://github.com/aperturerobotics/starpc
 
 **Starpc** supports client-to-server RPC streams in the web browser.
 
