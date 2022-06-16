@@ -1641,10 +1641,10 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-starpc@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/starpc/-/starpc-0.1.3.tgz#3700f4355da148c142e10a4cd9529e21d6b7edf1"
-  integrity sha512-ZLSIVJZ+OfMG/nRbLCmi04qO19KsCyTG+6zctt4+36aivngS+L5rf6/CAcBr4UKhh4qW7+5zco7dldj9RiO5Rg==
+starpc@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/starpc/-/starpc-0.1.5.tgz#28529bf7405c4c5babc8494d8b035eec2d461e16"
+  integrity sha512-4aMujfY6jV/RENAG64xrlvG0tLj1EaIGDpqrjZnjVD02UGieP6MpUqnHmgP7grkXH6dZSDU2ETF/BFmb4Urajw==
   dependencies:
     "@libp2p/components" "^1.0.0"
     "@libp2p/interface-connection" "^1.0.1"
@@ -1659,6 +1659,7 @@ starpc@^0.1.3:
     patch-package "^6.4.7"
     protobufjs "^6.11.3"
     rxjs "^7.5.5"
+    ts-poet "^4.12.0"
     ws "^8.8.0"
 
 strip-ansi@^6.0.1:
@@ -1706,7 +1707,7 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-ts-poet@^4.11.0:
+ts-poet@^4.11.0, ts-poet@^4.12.0:
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/ts-poet/-/ts-poet-4.12.0.tgz#84fbd95c30fae3e87c7d4c5f2961a19b45bf645f"
   integrity sha512-faSedZm8S0ophkGm9VenV3P2e7IoUwReMLzLaBb4JBPsHTk/nuwWj4iQcs3D9bI5bdnTmCq0xnAgj2MU5y4BBQ==
