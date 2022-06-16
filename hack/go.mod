@@ -1,4 +1,4 @@
-module github.com/paralin/starpc/hack
+module hack
 
 go 1.18
 

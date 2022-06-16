@@ -2,6 +2,8 @@
 
 This is a repository template for projects using protobuf.
 
+Supports **Go and TypeScript** with Go-style import paths.
+
 Uses a Makefile to download tools to ./hack/bin.
 
 Includes targets for linting, checking outdated modules, etc.
@@ -27,6 +29,11 @@ Other available branches:
 
  - **twirp**: uses the twirp rpc library instead of grpc.
  - **drpc**: uses the drpc rpc library instead of grpc.
+ - **starpc**: uses the [starpc] rpc library instead of grpc.
+ 
+[starpc**: https://github.com/aperturerobotics/starpc
+
+**Starpc** supports client-to-server RPC streams in the web browser.
 
 ## Usage
 

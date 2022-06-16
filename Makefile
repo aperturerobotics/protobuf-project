@@ -31,7 +31,7 @@ $(PROTOC_GEN_VTPROTOBUF):
 	cd ./hack; \
 	go build -v \
 		-o ./bin/protoc-gen-go-vtprotobuf \
-		github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto
+		github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtprotobuf
 
 $(GOIMPORTS):
 	cd ./hack; \
@@ -70,8 +70,8 @@ gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC
 	$(PROTOWRAP) \
 		-I $$(pwd)/vendor \
 		--go_out=$$(pwd)/vendor \
-		--go-grpc_out=$$(pwd)/vendor \
 		--go-vtprotobuf_out=$$(pwd)/vendor \
+    --go-vtprotobuf_opt=features=marshal+unmarshal+size+equal+grpc \
 		--proto_path $$(pwd)/vendor \
 		--print_structure \
 		--only_specified_files \
@@ -83,8 +83,38 @@ gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC
 	rm $$(pwd)/vendor/$${PROJECT} || true
 	$(GOIMPORTS) -w ./
 
+node_modules:
+	yarn install
+
+.PHONY: gents
+gents: $(PROTOWRAP) node_modules
+	go mod vendor
+	shopt -s globstar; \
+	set -eo pipefail; \
+	export PROJECT=$$(go list -m); \
+	export PATH=$$(pwd)/hack/bin:$${PATH}; \
+	mkdir -p $$(pwd)/vendor/$$(dirname $${PROJECT}); \
+	rm $$(pwd)/vendor/$${PROJECT} || true; \
+	ln -s $$(pwd) $$(pwd)/vendor/$${PROJECT} ; \
+	$(PROTOWRAP) \
+		-I $$(pwd)/vendor \
+		--plugin=./node_modules/.bin/protoc-gen-ts_proto \
+		--ts_proto_out=$$(pwd)/vendor \
+		--ts_proto_opt=forceLong=long \
+		--ts_proto_opt=oneof=unions \
+		--ts_proto_opt=esModuleInterop=true \
+		--proto_path $$(pwd)/vendor \
+		--print_structure \
+		--only_specified_files \
+		$$(\
+			git \
+				ls-files "*.proto" |\
+				xargs printf -- \
+				"$$(pwd)/vendor/$${PROJECT}/%s "); \
+	go mod vendor
+
 .PHONY: genproto
-genproto: gengo
+genproto: gengo gents
 
 .PHONY: gen
 gen: genproto
@@ -101,5 +131,6 @@ lint: $(GOLANGCI_LINT)
 fix: $(GOLANGCI_LINT)
 	$(GOLANGCI_LINT) run --fix
 
+.PHONY: test
 test:
 	go test -v ./...
