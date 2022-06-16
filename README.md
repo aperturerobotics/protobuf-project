@@ -22,6 +22,11 @@ The available make targets are:
  - `fix`: run golangci-lint --fix on the project.
  - `list`: list go module dependencies
  - `outdated`: list outdated go module dependencies
+ 
+To generate the TypeScript and Go code:
+
+ - `yarn install`
+ - `yarn gen`
 
 ## Branches
 
