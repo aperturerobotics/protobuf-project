@@ -7,8 +7,11 @@ PROTOC_GEN_VTPROTO=hack/bin/protoc-gen-go-vtproto
 GOIMPORTS=hack/bin/goimports
 GOLANGCI_LINT=hack/bin/golangci-lint
 GO_MOD_OUTDATED=hack/bin/go-mod-outdated
-export GO111MODULE=on
 GOLIST=go list -f "{{ .Dir }}" -m
+
+export GO111MODULE=on
+undefine GOARCH
+undefine GOOS
 
 all:
 
@@ -122,15 +125,19 @@ genproto: gengo gents
 .PHONY: gen
 gen: genproto
 
+.PHONY: outdated
 outdated: $(GO_MOD_OUTDATED)
 	go list -mod=mod -u -m -json all | $(GO_MOD_OUTDATED) -update -direct
 
+.PHONY: list
 list: $(GO_MOD_OUTDATED)
 	go list -mod=mod -u -m -json all | $(GO_MOD_OUTDATED)
 
+.PHONY: lint
 lint: $(GOLANGCI_LINT)
 	$(GOLANGCI_LINT) run
 
+.PHONY: fix
 fix: $(GOLANGCI_LINT)
 	$(GOLANGCI_LINT) run --fix
 
