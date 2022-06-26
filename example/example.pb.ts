@@ -1,9 +1,9 @@
 /* eslint-disable */
-import Long from 'long'
-import * as _m0 from 'protobufjs/minimal'
 import { Observable } from 'rxjs'
-import { OtherMessage } from './other/other'
+import Long from 'long'
+import { OtherMessage } from './other/other.pb'
 import { map } from 'rxjs/operators'
+import * as _m0 from 'protobufjs/minimal'
 
 export const protobufPackage = 'example'
 
@@ -148,6 +148,51 @@ export class EchoerClientImpl implements Echoer {
     return result.pipe(map((data) => EchoMsg.decode(new _m0.Reader(data))))
   }
 }
+
+/** Echoer service returns the given message. */
+export type EchoerDefinition = typeof EchoerDefinition
+export const EchoerDefinition = {
+  name: 'Echoer',
+  fullName: 'example.Echoer',
+  methods: {
+    /** Echo returns the given message. */
+    echo: {
+      name: 'Echo',
+      requestType: EchoMsg,
+      requestStream: false,
+      responseType: EchoMsg,
+      responseStream: false,
+      options: {},
+    },
+    /** EchoServerStream is an example of a server -> client one-way stream. */
+    echoServerStream: {
+      name: 'EchoServerStream',
+      requestType: EchoMsg,
+      requestStream: false,
+      responseType: EchoMsg,
+      responseStream: true,
+      options: {},
+    },
+    /** EchoClientStream is an example of client->server one-way stream. */
+    echoClientStream: {
+      name: 'EchoClientStream',
+      requestType: EchoMsg,
+      requestStream: true,
+      responseType: EchoMsg,
+      responseStream: false,
+      options: {},
+    },
+    /** EchoBidiStream is an example of a two-way stream. */
+    echoBidiStream: {
+      name: 'EchoBidiStream',
+      requestType: EchoMsg,
+      requestStream: true,
+      responseType: EchoMsg,
+      responseStream: true,
+      options: {},
+    },
+  },
+} as const
 
 interface Rpc {
   request(
