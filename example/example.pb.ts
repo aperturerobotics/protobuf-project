@@ -1,7 +1,7 @@
 /* eslint-disable */
-import { Observable } from 'rxjs'
 import Long from 'long'
 import { OtherMessage } from './other/other.pb'
+import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import * as _m0 from 'protobufjs/minimal'
 
