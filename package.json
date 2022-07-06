@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --project tsconfig.build.json --outDir ./dist/",
-    "check": "tsc",
+    "check": "npm run typecheck",
+    "typecheck": "tsc --noEmit",
     "deps": "depcheck",
     "codegen": "npm run gen",
     "ci": "npm run build && npm run lint:js && npm run lint:go",
