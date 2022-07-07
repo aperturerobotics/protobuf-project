@@ -15,8 +15,10 @@
     "importsNotUsedAsValues": "remove",
     "esModuleInterop": true
   },
-  "include": [
-    "example"
+  "exclude": [
+    "node_modules",
+    "vendor",
+    "dist"
   ],
   "ts-node": {
     "esm": true,

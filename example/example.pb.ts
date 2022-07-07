@@ -1,8 +1,6 @@
 /* eslint-disable */
 import Long from 'long'
 import { OtherMessage } from './other/other.pb.js'
-import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
 import * as _m0 from 'protobufjs/minimal'
 
 export const protobufPackage = 'example'
@@ -57,6 +55,40 @@ export const EchoMsg = {
     return message
   },
 
+  // encodeTransform encodes a source of message objects.
+  // Transform<EchoMsg, Uint8Array>
+  async *encodeTransform(
+    source: AsyncIterable<EchoMsg | EchoMsg[]> | Iterable<EchoMsg | EchoMsg[]>
+  ): AsyncIterable<Uint8Array> {
+    for await (const pkt of source) {
+      if (Array.isArray(pkt)) {
+        for (const p of pkt) {
+          yield* [EchoMsg.encode(p).finish()]
+        }
+      } else {
+        yield* [EchoMsg.encode(pkt).finish()]
+      }
+    }
+  },
+
+  // decodeTransform decodes a source of encoded messages.
+  // Transform<Uint8Array, EchoMsg>
+  async *decodeTransform(
+    source:
+      | AsyncIterable<Uint8Array | Uint8Array[]>
+      | Iterable<Uint8Array | Uint8Array[]>
+  ): AsyncIterable<EchoMsg> {
+    for await (const pkt of source) {
+      if (Array.isArray(pkt)) {
+        for (const p of pkt) {
+          yield* [EchoMsg.decode(p)]
+        }
+      } else {
+        yield* [EchoMsg.decode(pkt)]
+      }
+    }
+  },
+
   fromJSON(object: any): EchoMsg {
     return {
       body: isSet(object.body) ? String(object.body) : '',
@@ -92,11 +124,11 @@ export interface Echoer {
   /** Echo returns the given message. */
   Echo(request: EchoMsg): Promise<EchoMsg>
   /** EchoServerStream is an example of a server -> client one-way stream. */
-  EchoServerStream(request: EchoMsg): Observable<EchoMsg>
+  EchoServerStream(request: EchoMsg): AsyncIterable<EchoMsg>
   /** EchoClientStream is an example of client->server one-way stream. */
-  EchoClientStream(request: Observable<EchoMsg>): Promise<EchoMsg>
+  EchoClientStream(request: AsyncIterable<EchoMsg>): Promise<EchoMsg>
   /** EchoBidiStream is an example of a two-way stream. */
-  EchoBidiStream(request: Observable<EchoMsg>): Observable<EchoMsg>
+  EchoBidiStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg>
 }
 
 export class EchoerClientImpl implements Echoer {
@@ -114,20 +146,18 @@ export class EchoerClientImpl implements Echoer {
     return promise.then((data) => EchoMsg.decode(new _m0.Reader(data)))
   }
 
-  EchoServerStream(request: EchoMsg): Observable<EchoMsg> {
+  EchoServerStream(request: EchoMsg): AsyncIterable<EchoMsg> {
     const data = EchoMsg.encode(request).finish()
     const result = this.rpc.serverStreamingRequest(
       'example.Echoer',
       'EchoServerStream',
       data
     )
-    return result.pipe(map((data) => EchoMsg.decode(new _m0.Reader(data))))
+    return EchoMsg.decodeTransform(result)
   }
 
-  EchoClientStream(request: Observable<EchoMsg>): Promise<EchoMsg> {
-    const data = request.pipe(
-      map((request) => EchoMsg.encode(request).finish())
-    )
+  EchoClientStream(request: AsyncIterable<EchoMsg>): Promise<EchoMsg> {
+    const data = EchoMsg.encodeTransform(request)
     const promise = this.rpc.clientStreamingRequest(
       'example.Echoer',
       'EchoClientStream',
@@ -136,16 +166,14 @@ export class EchoerClientImpl implements Echoer {
     return promise.then((data) => EchoMsg.decode(new _m0.Reader(data)))
   }
 
-  EchoBidiStream(request: Observable<EchoMsg>): Observable<EchoMsg> {
-    const data = request.pipe(
-      map((request) => EchoMsg.encode(request).finish())
-    )
+  EchoBidiStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg> {
+    const data = EchoMsg.encodeTransform(request)
     const result = this.rpc.bidirectionalStreamingRequest(
       'example.Echoer',
       'EchoBidiStream',
       data
     )
-    return result.pipe(map((data) => EchoMsg.decode(new _m0.Reader(data))))
+    return EchoMsg.decodeTransform(result)
   }
 }
 
@@ -203,18 +231,18 @@ interface Rpc {
   clientStreamingRequest(
     service: string,
     method: string,
-    data: Observable<Uint8Array>
+    data: AsyncIterable<Uint8Array>
   ): Promise<Uint8Array>
   serverStreamingRequest(
     service: string,
     method: string,
     data: Uint8Array
-  ): Observable<Uint8Array>
+  ): AsyncIterable<Uint8Array>
   bidirectionalStreamingRequest(
     service: string,
     method: string,
-    data: Observable<Uint8Array>
-  ): Observable<Uint8Array>
+    data: AsyncIterable<Uint8Array>
+  ): AsyncIterable<Uint8Array>
 }
 
 type Builtin =

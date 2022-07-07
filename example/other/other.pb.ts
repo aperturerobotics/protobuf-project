@@ -33,6 +33,42 @@ export const OtherMessage = {
     return message
   },
 
+  // encodeTransform encodes a source of message objects.
+  // Transform<OtherMessage, Uint8Array>
+  async *encodeTransform(
+    source:
+      | AsyncIterable<OtherMessage | OtherMessage[]>
+      | Iterable<OtherMessage | OtherMessage[]>
+  ): AsyncIterable<Uint8Array> {
+    for await (const pkt of source) {
+      if (Array.isArray(pkt)) {
+        for (const p of pkt) {
+          yield* [OtherMessage.encode(p).finish()]
+        }
+      } else {
+        yield* [OtherMessage.encode(pkt).finish()]
+      }
+    }
+  },
+
+  // decodeTransform decodes a source of encoded messages.
+  // Transform<Uint8Array, OtherMessage>
+  async *decodeTransform(
+    source:
+      | AsyncIterable<Uint8Array | Uint8Array[]>
+      | Iterable<Uint8Array | Uint8Array[]>
+  ): AsyncIterable<OtherMessage> {
+    for await (const pkt of source) {
+      if (Array.isArray(pkt)) {
+        for (const p of pkt) {
+          yield* [OtherMessage.decode(p)]
+        }
+      } else {
+        yield* [OtherMessage.decode(pkt)]
+      }
+    }
+  },
+
   fromJSON(_: any): OtherMessage {
     return {}
   },
