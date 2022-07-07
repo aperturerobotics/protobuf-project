@@ -38,7 +38,6 @@
   },
   "dependencies": {
     "long": "^5.2.0",
-    "protobufjs": "^6.11.3",
-    "rxjs": "^7.5.5"
+    "protobufjs": "^6.11.3"
   }
 }
