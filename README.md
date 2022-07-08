@@ -32,6 +32,7 @@ To generate the TypeScript and Go code:
 
 Other available branches:
 
+ - **norpc**: does not have any RPC library.
  - **drpc**: uses the drpc rpc library instead of grpc.
  - **grpc**: uses the grpc rpc protoc instead of vtprotobuf.
  - **starpc**: uses the [starpc] rpc library instead of grpc.
