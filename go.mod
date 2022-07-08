@@ -2,10 +2,6 @@ module github.com/aperturerobotics/protobuf-project
 
 go 1.21
 
-require (
-	github.com/planetscale/vtprotobuf v0.5.0
-	google.golang.org/protobuf v1.32.0
-	storj.io/drpc v0.0.33
-)
+replace google.golang.org/protobuf => github.com/aperturerobotics/protobuf-go v1.32.1-0.20231231025138-7d69d9b7299c // aperture
 
-require github.com/zeebo/errs v1.2.2 // indirect
+require google.golang.org/protobuf v0.0.0-00010101000000-000000000000

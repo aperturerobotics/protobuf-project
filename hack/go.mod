@@ -11,7 +11,6 @@ require (
 	github.com/planetscale/vtprotobuf v0.5.0
 	github.com/psampaz/go-mod-outdated v0.9.0
 	google.golang.org/protobuf v1.32.0
-	storj.io/drpc v0.0.33
 )
 
 require (

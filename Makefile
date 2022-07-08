@@ -4,7 +4,6 @@ SHELL:=bash
 ESBUILD=hack/bin/esbuild
 PROTOWRAP=hack/bin/protowrap
 PROTOC_GEN_GO=hack/bin/protoc-gen-go
-PROTOC_GEN_DRPC=hack/bin/protoc-gen-go-drpc
 PROTOC_GEN_VTPROTO=hack/bin/protoc-gen-go-vtproto
 GOIMPORTS=hack/bin/goimports
 GOLANGCI_LINT=hack/bin/golangci-lint
@@ -31,12 +30,6 @@ $(PROTOC_GEN_GO):
 	go build -v \
 		-o ./bin/protoc-gen-go \
 		google.golang.org/protobuf/cmd/protoc-gen-go
-
-$(PROTOC_GEN_DRPC):
-	cd ./hack; \
-	go build -v \
-		-o ./bin/protoc-gen-go-drpc \
-		storj.io/drpc/cmd/protoc-gen-go-drpc
 
 $(PROTOC_GEN_VTPROTO):
 	cd ./hack; \
@@ -69,7 +62,7 @@ $(GO_MOD_OUTDATED):
 		github.com/psampaz/go-mod-outdated
 
 .PHONY: gengo
-gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO) $(PROTOC_GEN_DRPC)
+gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO)
 	shopt -s globstar; \
 	set -eo pipefail; \
 	export PROJECT=$$(go list -m); \
@@ -80,10 +73,6 @@ gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO) $(PROTOC
 	$(PROTOWRAP) \
 		-I $$(pwd)/vendor \
 		--go_out=$$(pwd)/vendor \
-		--go-drpc_out=$$(pwd)/vendor \
-		--go-drpc_opt=json=false \
-		--go-drpc_opt=protolib=github.com/golang/protobuf/proto \
-		--go-drpc_opt=protolib=github.com/planetscale/vtprotobuf/codec/drpc \
 		--go-vtproto_out=$$(pwd)/vendor \
 		--go-vtproto_opt=features=marshal+unmarshal+size+equal+clone \
 		--proto_path $$(pwd)/vendor \

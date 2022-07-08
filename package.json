@@ -1,7 +1,7 @@
 {
   "name": "@aperturerobotics/protobuf-project",
   "version": "0.0.0",
-  "description": "Example of a Protobuf RPC project with DRPC.",
+  "description": "Example of a Protobuf project.",
   "license": "MIT",
   "scripts": {
     "build": "tsc --project tsconfig.build.json --outDir ./dist/",

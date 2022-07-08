@@ -10,8 +10,6 @@ import (
 	_ "google.golang.org/protobuf/cmd/protoc-gen-go"
 	// _ imports protoc-gen-go-vtproto
 	_ "github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto"
-	// _ imports drpc
-	_ "storj.io/drpc/cmd/protoc-gen-go-drpc"
 	// _ imports golangci-lint
 	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
 	// _ imports golangci-lint commands
