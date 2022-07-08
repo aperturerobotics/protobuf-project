@@ -1,20 +1,30 @@
 /* eslint-disable */
+import { Timestamp } from '@aperturerobotics/ts-proto-common-types/google/protobuf/timestamp.pb.js'
 import Long from 'long'
 import * as _m0 from 'protobufjs/minimal'
 
 export const protobufPackage = 'other'
 
-export interface OtherMessage {}
+export interface OtherMessage {
+  /** Timestamp is an example of a Date encoding. */
+  timestamp: Date | undefined
+}
 
 function createBaseOtherMessage(): OtherMessage {
-  return {}
+  return { timestamp: undefined }
 }
 
 export const OtherMessage = {
   encode(
-    _: OtherMessage,
+    message: OtherMessage,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
+    if (message.timestamp !== undefined) {
+      Timestamp.encode(
+        toTimestamp(message.timestamp),
+        writer.uint32(10).fork()
+      ).ldelim()
+    }
     return writer
   },
 
@@ -25,6 +35,11 @@ export const OtherMessage = {
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
+        case 1:
+          message.timestamp = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32())
+          )
+          break
         default:
           reader.skipType(tag & 7)
           break
@@ -69,19 +84,26 @@ export const OtherMessage = {
     }
   },
 
-  fromJSON(_: any): OtherMessage {
-    return {}
+  fromJSON(object: any): OtherMessage {
+    return {
+      timestamp: isSet(object.timestamp)
+        ? fromJsonTimestamp(object.timestamp)
+        : undefined,
+    }
   },
 
-  toJSON(_: OtherMessage): unknown {
+  toJSON(message: OtherMessage): unknown {
     const obj: any = {}
+    message.timestamp !== undefined &&
+      (obj.timestamp = message.timestamp.toISOString())
     return obj
   },
 
   fromPartial<I extends Exact<DeepPartial<OtherMessage>, I>>(
-    _: I
+    object: I
   ): OtherMessage {
     const message = createBaseOtherMessage()
+    message.timestamp = object.timestamp ?? undefined
     return message
   },
 }
@@ -119,7 +141,37 @@ export type Exact<P, I extends P> = P extends Builtin
         never
       >
 
+function toTimestamp(date: Date): Timestamp {
+  const seconds = numberToLong(date.getTime() / 1_000)
+  const nanos = (date.getTime() % 1_000) * 1_000_000
+  return { seconds, nanos }
+}
+
+function fromTimestamp(t: Timestamp): Date {
+  let millis = t.seconds.toNumber() * 1_000
+  millis += t.nanos / 1_000_000
+  return new Date(millis)
+}
+
+function fromJsonTimestamp(o: any): Date {
+  if (o instanceof Date) {
+    return o
+  } else if (typeof o === 'string') {
+    return new Date(o)
+  } else {
+    return fromTimestamp(Timestamp.fromJSON(o))
+  }
+}
+
+function numberToLong(number: number) {
+  return Long.fromNumber(number)
+}
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any
   _m0.configure()
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined
 }

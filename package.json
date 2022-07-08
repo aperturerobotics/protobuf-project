@@ -37,6 +37,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "@aperturerobotics/ts-proto-common-types": "^0.1.0",
     "long": "^5.2.0",
     "protobufjs": "^6.11.3"
   }
