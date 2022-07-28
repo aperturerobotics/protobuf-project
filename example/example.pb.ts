@@ -126,7 +126,7 @@ export interface Echoer {
   /** EchoServerStream is an example of a server -> client one-way stream. */
   EchoServerStream(request: EchoMsg): AsyncIterable<EchoMsg>
   /** EchoClientStream is an example of client->server one-way stream. */
-  EchoClientStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg>
+  EchoClientStream(request: AsyncIterable<EchoMsg>): Promise<EchoMsg>
   /** EchoBidiStream is an example of a two-way stream. */
   EchoBidiStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg>
 }
@@ -156,7 +156,7 @@ export class EchoerClientImpl implements Echoer {
     return EchoMsg.decodeTransform(result)
   }
 
-  EchoClientStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg> {
+  EchoClientStream(request: AsyncIterable<EchoMsg>): Promise<EchoMsg> {
     const data = EchoMsg.encodeTransform(request)
     const promise = this.rpc.clientStreamingRequest(
       'example.Echoer',
