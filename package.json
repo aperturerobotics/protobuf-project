@@ -7,7 +7,7 @@
     "build": "tsc --project tsconfig.build.json --outDir ./dist/",
     "check": "npm run typecheck",
     "typecheck": "tsc --noEmit",
-    "deps": "depcheck --ignores bufferutil,utf-8-validate,ts-proto,ts-poet,esbuild,protobufjs",
+    "deps": "depcheck --ignores bufferutil,utf-8-validate,ts-proto,ts-poet,esbuild,protobufjs,@aperturerobotics/ts-common",
     "codegen": "npm run gen",
     "ci": "npm run build && npm run lint:js && npm run lint:go",
     "format": "prettier --write './!(vendor|dist)/**/(*.ts|*.tsx|*.html|*.css)'",
@@ -28,19 +28,19 @@
   },
   "devDependencies": {
     "@aperturerobotics/ts-common": "^0.1.0",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
     "depcheck": "^1.4.3",
-    "eslint": "^8.19.0",
+    "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "patch-package": "^6.4.7",
     "prettier": "^2.7.1",
-    "ts-proto": "^1.117.0",
+    "ts-proto": "^1.121.0",
     "typescript": "^4.7.4"
   },
   "dependencies": {
     "@aperturerobotics/ts-proto-common-types": "^0.1.0",
     "long": "^5.2.0",
-    "protobufjs": "^6.11.3"
+    "protobufjs": "^7.0.0"
   }
 }

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import Long from 'long'
 import { OtherMessage } from './other/other.pb.js'
-import * as _m0 from 'protobufjs/minimal'
+import _m0 from 'protobufjs/minimal.js'
 
 export const protobufPackage = 'example'
 
@@ -126,7 +126,7 @@ export interface Echoer {
   /** EchoServerStream is an example of a server -> client one-way stream. */
   EchoServerStream(request: EchoMsg): AsyncIterable<EchoMsg>
   /** EchoClientStream is an example of client->server one-way stream. */
-  EchoClientStream(request: AsyncIterable<EchoMsg>): Promise<EchoMsg>
+  EchoClientStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg>
   /** EchoBidiStream is an example of a two-way stream. */
   EchoBidiStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg>
 }
@@ -156,7 +156,7 @@ export class EchoerClientImpl implements Echoer {
     return EchoMsg.decodeTransform(result)
   }
 
-  EchoClientStream(request: AsyncIterable<EchoMsg>): Promise<EchoMsg> {
+  EchoClientStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg> {
     const data = EchoMsg.encodeTransform(request)
     const promise = this.rpc.clientStreamingRequest(
       'example.Echoer',
