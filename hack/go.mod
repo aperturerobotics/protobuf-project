@@ -13,7 +13,7 @@ require (
 	github.com/psampaz/go-mod-outdated v0.8.0
 	github.com/square/goprotowrap v0.0.0-20210611190042-204ec2527e6f
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.2.0
-	google.golang.org/protobuf v1.28.0
+	google.golang.org/protobuf v1.28.1
 )
 
 require (
