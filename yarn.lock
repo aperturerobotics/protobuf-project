@@ -2,13 +2,13 @@
 # yarn lockfile v1
 
 
-"@aperturerobotics/ts-common@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@aperturerobotics/ts-common/-/ts-common-0.1.0.tgz#10707aedaea19682e5b21b19d461043f34c4e08b"
-  integrity sha512-UFhQUN6JQ0nDmxEKH2zKVXE1AN0AUIFFwi5eaF+mxlvGghbWl8Zn1sTX4b1kOY6fP+qTOg7ZHVVYonBZmEaF0Q==
+"@aperturerobotics/ts-common@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@aperturerobotics/ts-common/-/ts-common-0.1.1.tgz#46c50862fa77860d912fc6a25de3cd11cd1db742"
+  integrity sha512-l0esVKB2igu43R4N+3/N95z0gg2yWgr7hYjt5VdW21I/oELSDZN6YsC9+3X+wIUxiiCDCihIojXd0W31xFV7sA==
   dependencies:
     bufferutil "^4.0.6"
-    starpc "^0.8.1"
+    starpc "^0.8.6"
     utf-8-validate "^5.0.9"
 
 "@aperturerobotics/ts-proto-common-types@^0.1.0":
@@ -2047,7 +2047,7 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
 
-starpc@^0.8.1:
+starpc@^0.8.6:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/starpc/-/starpc-0.8.6.tgz#e99336ea8e8337d8b15291ba1b7becbea2fc3097"
   integrity sha512-y9DCO6+M0PL9dzUAnTJ++Lpa11tRg3DE95kFXp3PRuiP2+w8XGl8uNsw5eDsVI4DpFI5qu+/O/sWWzKJ7WHa7A==
