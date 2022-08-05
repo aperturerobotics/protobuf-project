@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Timestamp } from '../../../../../google/protobuf/timestamp.pb.js'
+import { Timestamp } from '@aperturerobotics/ts-proto-common-types/google/protobuf/timestamp.pb.js'
 import Long from 'long'
 import _m0 from 'protobufjs/minimal.js'
 
