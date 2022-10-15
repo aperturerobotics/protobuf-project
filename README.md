@@ -12,6 +12,12 @@ You can create a new repository with this template [on GitHub].
 
 [on GitHub]: https://github.com/aperturerobotics/protobuf-project
 
+## Demo
+
+**This branch implements a starpc service and demo.**
+
+To run the demo: **yarn** then **yarn run demo**.
+
 ## Makefile
 
 The available make targets are:
@@ -33,14 +39,17 @@ To generate the TypeScript and Go code:
 Other available branches:
 
  - **norpc**: does not have any RPC library.
- - **drpc**: uses the drpc rpc library instead of grpc.
- - **grpc**: uses the grpc rpc protoc instead of vtprotobuf.
- - **starpc**: uses the [starpc] rpc library instead of grpc.
- - **twirp**: uses the twirp rpc library instead of grpc.
- 
-[starpc]: https://github.com/aperturerobotics/starpc
+ - **drpc**: uses the [dRPC] rpc library instead of [starpc].
+ - **grpc**: uses the [gRPC] rpc library instead of [starpc].
+ - **starpc**: uses the [starpc] rpc library (same as main).
+ - **twirp**: uses the [Twirp] rpc library instead of [starpc].
 
-**Starpc** supports client-to-server RPC streams in the web browser.
+[dRPC]: https://github.com/storj/drpc
+[gRPC]: https://github.com/grpc/grpc
+[starpc]: https://github.com/aperturerobotics/starpc
+[Twirp]: https://github.com/twitchtv/twirp
+
+**starpc** is the only RPC library currently to support bidirectional RPC streams in the web browser over WebSocket or other two-way channels.
 
 ## Usage
 

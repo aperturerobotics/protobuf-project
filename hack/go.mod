@@ -2,14 +2,15 @@ module hack
 
 go 1.20
 
-replace google.golang.org/protobuf => github.com/paralin/protobuf-go v1.31.1-0.20231012212426-9cf9f0f94f47 // aperture
+replace google.golang.org/protobuf => github.com/aperturerobotics/protobuf-go v1.31.1-0.20231012212426-9cf9f0f94f47 // aperture
 
 require (
 	github.com/aperturerobotics/goprotowrap v0.3.0
+	github.com/aperturerobotics/starpc v0.21.5
+	github.com/evanw/esbuild v0.19.10
 	github.com/golangci/golangci-lint v1.55.2
 	github.com/planetscale/vtprotobuf v0.5.0
 	github.com/psampaz/go-mod-outdated v0.9.0
-	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
 	google.golang.org/protobuf v1.31.0
 )
 
@@ -180,7 +181,7 @@ require (
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
-	golang.org/x/exp v0.0.0-20230510235704-dd950f8aeaea // indirect
+	golang.org/x/exp v0.0.0-20231006140011-7918f672742d // indirect
 	golang.org/x/exp/typeparams v0.0.0-20230307190834-24139beb5833 // indirect
 	golang.org/x/mod v0.13.0 // indirect
 	golang.org/x/sync v0.4.0 // indirect
