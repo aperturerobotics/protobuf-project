@@ -1,7 +1,7 @@
 /* eslint-disable */
 import Long from 'long'
-import { OtherMessage } from './other/other.pb.js'
 import _m0 from 'protobufjs/minimal.js'
+import { OtherMessage } from './other/other.pb.js'
 
 export const protobufPackage = 'example'
 
@@ -133,7 +133,9 @@ export interface Echoer {
 
 export class EchoerClientImpl implements Echoer {
   private readonly rpc: Rpc
-  constructor(rpc: Rpc) {
+  private readonly service: string
+  constructor(rpc: Rpc, opts?: { service?: string }) {
+    this.service = opts?.service || 'example.Echoer'
     this.rpc = rpc
     this.Echo = this.Echo.bind(this)
     this.EchoServerStream = this.EchoServerStream.bind(this)
@@ -142,14 +144,14 @@ export class EchoerClientImpl implements Echoer {
   }
   Echo(request: EchoMsg): Promise<EchoMsg> {
     const data = EchoMsg.encode(request).finish()
-    const promise = this.rpc.request('example.Echoer', 'Echo', data)
+    const promise = this.rpc.request(this.service, 'Echo', data)
     return promise.then((data) => EchoMsg.decode(new _m0.Reader(data)))
   }
 
   EchoServerStream(request: EchoMsg): AsyncIterable<EchoMsg> {
     const data = EchoMsg.encode(request).finish()
     const result = this.rpc.serverStreamingRequest(
-      'example.Echoer',
+      this.service,
       'EchoServerStream',
       data
     )
@@ -159,7 +161,7 @@ export class EchoerClientImpl implements Echoer {
   EchoClientStream(request: AsyncIterable<EchoMsg>): Promise<EchoMsg> {
     const data = EchoMsg.encodeTransform(request)
     const promise = this.rpc.clientStreamingRequest(
-      'example.Echoer',
+      this.service,
       'EchoClientStream',
       data
     )
@@ -169,7 +171,7 @@ export class EchoerClientImpl implements Echoer {
   EchoBidiStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg> {
     const data = EchoMsg.encodeTransform(request)
     const result = this.rpc.bidirectionalStreamingRequest(
-      'example.Echoer',
+      this.service,
       'EchoBidiStream',
       data
     )

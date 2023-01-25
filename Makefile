@@ -65,7 +65,6 @@ $(GO_MOD_OUTDATED):
 
 .PHONY: gengo
 gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC_GEN_VTPROTO)
-	go mod vendor
 	shopt -s globstar; \
 	set -eo pipefail; \
 	export PROJECT=$$(go list -m); \
@@ -94,7 +93,6 @@ node_modules:
 
 .PHONY: gents
 gents: $(PROTOWRAP) node_modules
-	go mod vendor
 	shopt -s globstar; \
 	set -eo pipefail; \
 	export PROJECT=$$(go list -m); \
@@ -112,6 +110,7 @@ gents: $(PROTOWRAP) node_modules
 		--ts_proto_opt=forceLong=long \
 		--ts_proto_opt=oneof=unions \
 		--ts_proto_opt=outputServices=default,outputServices=generic-definitions \
+		--ts_proto_opt=useAbortSignal=true \
 		--ts_proto_opt=useAsyncIterable=true \
 		--ts_proto_opt=useDate=true \
 		--proto_path $$(pwd)/vendor \
@@ -122,7 +121,8 @@ gents: $(PROTOWRAP) node_modules
 				ls-files "*.proto" |\
 				xargs printf -- \
 				"$$(pwd)/vendor/$${PROJECT}/%s "); \
-	go mod vendor
+	rm $$(pwd)/vendor/$${PROJECT} || true
+	npm run format
 
 .PHONY: genproto
 genproto: gengo gents
