@@ -99,6 +99,12 @@ export const OtherMessage = {
     return obj
   },
 
+  create<I extends Exact<DeepPartial<OtherMessage>, I>>(
+    base?: I
+  ): OtherMessage {
+    return OtherMessage.fromPartial(base ?? {})
+  },
+
   fromPartial<I extends Exact<DeepPartial<OtherMessage>, I>>(
     object: I
   ): OtherMessage {

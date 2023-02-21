@@ -108,6 +108,10 @@ export const EchoMsg = {
     return obj
   },
 
+  create<I extends Exact<DeepPartial<EchoMsg>, I>>(base?: I): EchoMsg {
+    return EchoMsg.fromPartial(base ?? {})
+  },
+
   fromPartial<I extends Exact<DeepPartial<EchoMsg>, I>>(object: I): EchoMsg {
     const message = createBaseEchoMsg()
     message.body = object.body ?? ''
@@ -122,13 +126,22 @@ export const EchoMsg = {
 /** Echoer service returns the given message. */
 export interface Echoer {
   /** Echo returns the given message. */
-  Echo(request: EchoMsg): Promise<EchoMsg>
+  Echo(request: EchoMsg, abortSignal?: AbortSignal): Promise<EchoMsg>
   /** EchoServerStream is an example of a server -> client one-way stream. */
-  EchoServerStream(request: EchoMsg): AsyncIterable<EchoMsg>
+  EchoServerStream(
+    request: EchoMsg,
+    abortSignal?: AbortSignal
+  ): AsyncIterable<EchoMsg>
   /** EchoClientStream is an example of client->server one-way stream. */
-  EchoClientStream(request: AsyncIterable<EchoMsg>): Promise<EchoMsg>
+  EchoClientStream(
+    request: AsyncIterable<EchoMsg>,
+    abortSignal?: AbortSignal
+  ): Promise<EchoMsg>
   /** EchoBidiStream is an example of a two-way stream. */
-  EchoBidiStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg>
+  EchoBidiStream(
+    request: AsyncIterable<EchoMsg>,
+    abortSignal?: AbortSignal
+  ): AsyncIterable<EchoMsg>
 }
 
 export class EchoerClientImpl implements Echoer {
@@ -142,38 +155,55 @@ export class EchoerClientImpl implements Echoer {
     this.EchoClientStream = this.EchoClientStream.bind(this)
     this.EchoBidiStream = this.EchoBidiStream.bind(this)
   }
-  Echo(request: EchoMsg): Promise<EchoMsg> {
+  Echo(request: EchoMsg, abortSignal?: AbortSignal): Promise<EchoMsg> {
     const data = EchoMsg.encode(request).finish()
-    const promise = this.rpc.request(this.service, 'Echo', data)
+    const promise = this.rpc.request(
+      this.service,
+      'Echo',
+      data,
+      abortSignal || undefined
+    )
     return promise.then((data) => EchoMsg.decode(new _m0.Reader(data)))
   }
 
-  EchoServerStream(request: EchoMsg): AsyncIterable<EchoMsg> {
+  EchoServerStream(
+    request: EchoMsg,
+    abortSignal?: AbortSignal
+  ): AsyncIterable<EchoMsg> {
     const data = EchoMsg.encode(request).finish()
     const result = this.rpc.serverStreamingRequest(
       this.service,
       'EchoServerStream',
-      data
+      data,
+      abortSignal || undefined
     )
     return EchoMsg.decodeTransform(result)
   }
 
-  EchoClientStream(request: AsyncIterable<EchoMsg>): Promise<EchoMsg> {
+  EchoClientStream(
+    request: AsyncIterable<EchoMsg>,
+    abortSignal?: AbortSignal
+  ): Promise<EchoMsg> {
     const data = EchoMsg.encodeTransform(request)
     const promise = this.rpc.clientStreamingRequest(
       this.service,
       'EchoClientStream',
-      data
+      data,
+      abortSignal || undefined
     )
     return promise.then((data) => EchoMsg.decode(new _m0.Reader(data)))
   }
 
-  EchoBidiStream(request: AsyncIterable<EchoMsg>): AsyncIterable<EchoMsg> {
+  EchoBidiStream(
+    request: AsyncIterable<EchoMsg>,
+    abortSignal?: AbortSignal
+  ): AsyncIterable<EchoMsg> {
     const data = EchoMsg.encodeTransform(request)
     const result = this.rpc.bidirectionalStreamingRequest(
       this.service,
       'EchoBidiStream',
-      data
+      data,
+      abortSignal || undefined
     )
     return EchoMsg.decodeTransform(result)
   }
@@ -228,22 +258,26 @@ interface Rpc {
   request(
     service: string,
     method: string,
-    data: Uint8Array
+    data: Uint8Array,
+    abortSignal?: AbortSignal
   ): Promise<Uint8Array>
   clientStreamingRequest(
     service: string,
     method: string,
-    data: AsyncIterable<Uint8Array>
+    data: AsyncIterable<Uint8Array>,
+    abortSignal?: AbortSignal
   ): Promise<Uint8Array>
   serverStreamingRequest(
     service: string,
     method: string,
-    data: Uint8Array
+    data: Uint8Array,
+    abortSignal?: AbortSignal
   ): AsyncIterable<Uint8Array>
   bidirectionalStreamingRequest(
     service: string,
     method: string,
-    data: AsyncIterable<Uint8Array>
+    data: AsyncIterable<Uint8Array>,
+    abortSignal?: AbortSignal
   ): AsyncIterable<Uint8Array>
 }
 
