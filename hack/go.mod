@@ -14,7 +14,7 @@ require (
 
 require (
 	github.com/aperturerobotics/goprotowrap v0.3.0
-	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.2.1-0.20230216223317-abff344ead8f
+	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
 )
 
 require (
