@@ -13,7 +13,7 @@ import (
 	// _ imports grpc
 	_ "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
 	// _ imports golangci-lint
-	_ "github.com/golangci/golangci-lint/pkg/golinters"
+	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
 	// _ imports golangci-lint commands
 	_ "github.com/golangci/golangci-lint/pkg/commands"
 	// _ imports go-mod-outdated
