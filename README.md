@@ -70,10 +70,6 @@ The Makefile will download the tools using Go to a bin dir.
 
 ## Support
 
-`protobuf-project` is supported by Aperture Robotics, LLC.
-
-Community contributions and discussion are welcomed!
-
 Please open a [GitHub issue] with any questions / issues.
 
 [GitHub issue]: https://github.com/aperturerobotics/protobuf-project/issues/new
