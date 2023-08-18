@@ -17,12 +17,12 @@ function createBaseOtherMessage(): OtherMessage {
 export const OtherMessage = {
   encode(
     message: OtherMessage,
-    writer: _m0.Writer = _m0.Writer.create()
+    writer: _m0.Writer = _m0.Writer.create(),
   ): _m0.Writer {
     if (message.timestamp !== undefined) {
       Timestamp.encode(
         toTimestamp(message.timestamp),
-        writer.uint32(10).fork()
+        writer.uint32(10).fork(),
       ).ldelim()
     }
     return writer
@@ -37,16 +37,16 @@ export const OtherMessage = {
       const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          if (tag != 10) {
+          if (tag !== 10) {
             break
           }
 
           message.timestamp = fromTimestamp(
-            Timestamp.decode(reader, reader.uint32())
+            Timestamp.decode(reader, reader.uint32()),
           )
           continue
       }
-      if ((tag & 7) == 4 || tag == 0) {
+      if ((tag & 7) === 4 || tag === 0) {
         break
       }
       reader.skipType(tag & 7)
@@ -59,7 +59,7 @@ export const OtherMessage = {
   async *encodeTransform(
     source:
       | AsyncIterable<OtherMessage | OtherMessage[]>
-      | Iterable<OtherMessage | OtherMessage[]>
+      | Iterable<OtherMessage | OtherMessage[]>,
   ): AsyncIterable<Uint8Array> {
     for await (const pkt of source) {
       if (Array.isArray(pkt)) {
@@ -77,7 +77,7 @@ export const OtherMessage = {
   async *decodeTransform(
     source:
       | AsyncIterable<Uint8Array | Uint8Array[]>
-      | Iterable<Uint8Array | Uint8Array[]>
+      | Iterable<Uint8Array | Uint8Array[]>,
   ): AsyncIterable<OtherMessage> {
     for await (const pkt of source) {
       if (Array.isArray(pkt)) {
@@ -100,19 +100,19 @@ export const OtherMessage = {
 
   toJSON(message: OtherMessage): unknown {
     const obj: any = {}
-    message.timestamp !== undefined &&
-      (obj.timestamp = message.timestamp.toISOString())
+    if (message.timestamp !== undefined) {
+      obj.timestamp = message.timestamp.toISOString()
+    }
     return obj
   },
 
   create<I extends Exact<DeepPartial<OtherMessage>, I>>(
-    base?: I
+    base?: I,
   ): OtherMessage {
-    return OtherMessage.fromPartial(base ?? {})
+    return OtherMessage.fromPartial(base ?? ({} as any))
   },
-
   fromPartial<I extends Exact<DeepPartial<OtherMessage>, I>>(
-    object: I
+    object: I,
   ): OtherMessage {
     const message = createBaseOtherMessage()
     message.timestamp = object.timestamp ?? undefined
@@ -159,8 +159,8 @@ function toTimestamp(date: Date): Timestamp {
 }
 
 function fromTimestamp(t: Timestamp): Date {
-  let millis = t.seconds.toNumber() * 1_000
-  millis += t.nanos / 1_000_000
+  let millis = (t.seconds.toNumber() || 0) * 1_000
+  millis += (t.nanos || 0) / 1_000_000
   return new Date(millis)
 }
 
