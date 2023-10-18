@@ -35,6 +35,7 @@
     "eslint-config-prettier": "^9.0.0",
     "patch-package": "^8.0.0",
     "prettier": "^3.0.3",
+    "ts-poet": "6.6.0",
     "ts-proto": "^1.162.1",
     "typescript": "^5.2.2"
   },
