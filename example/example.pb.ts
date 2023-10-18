@@ -71,12 +71,12 @@ export const EchoMsg = {
     source: AsyncIterable<EchoMsg | EchoMsg[]> | Iterable<EchoMsg | EchoMsg[]>,
   ): AsyncIterable<Uint8Array> {
     for await (const pkt of source) {
-      if (Array.isArray(pkt)) {
-        for (const p of pkt) {
+      if (globalThis.Array.isArray(pkt)) {
+        for (const p of pkt as any) {
           yield* [EchoMsg.encode(p).finish()]
         }
       } else {
-        yield* [EchoMsg.encode(pkt).finish()]
+        yield* [EchoMsg.encode(pkt as any).finish()]
       }
     }
   },
@@ -89,19 +89,19 @@ export const EchoMsg = {
       | Iterable<Uint8Array | Uint8Array[]>,
   ): AsyncIterable<EchoMsg> {
     for await (const pkt of source) {
-      if (Array.isArray(pkt)) {
-        for (const p of pkt) {
+      if (globalThis.Array.isArray(pkt)) {
+        for (const p of pkt as any) {
           yield* [EchoMsg.decode(p)]
         }
       } else {
-        yield* [EchoMsg.decode(pkt)]
+        yield* [EchoMsg.decode(pkt as any)]
       }
     }
   },
 
   fromJSON(object: any): EchoMsg {
     return {
-      body: isSet(object.body) ? String(object.body) : '',
+      body: isSet(object.body) ? globalThis.String(object.body) : '',
       otherMessage: isSet(object.otherMessage)
         ? OtherMessage.fromJSON(object.otherMessage)
         : undefined,
@@ -305,8 +305,8 @@ export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Long
   ? string | number | Long
-  : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
+  : T extends globalThis.Array<infer U>
+  ? globalThis.Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
   ? ReadonlyArray<DeepPartial<U>>
   : T extends { $case: string }

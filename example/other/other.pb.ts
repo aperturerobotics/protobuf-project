@@ -1,7 +1,7 @@
 /* eslint-disable */
-import { Timestamp } from '@aperturerobotics/ts-proto-common-types/google/protobuf/timestamp.pb.js'
 import Long from 'long'
 import _m0 from 'protobufjs/minimal.js'
+import { Timestamp } from '../../../../../google/protobuf/timestamp.pb.js'
 
 export const protobufPackage = 'other'
 
@@ -62,12 +62,12 @@ export const OtherMessage = {
       | Iterable<OtherMessage | OtherMessage[]>,
   ): AsyncIterable<Uint8Array> {
     for await (const pkt of source) {
-      if (Array.isArray(pkt)) {
-        for (const p of pkt) {
+      if (globalThis.Array.isArray(pkt)) {
+        for (const p of pkt as any) {
           yield* [OtherMessage.encode(p).finish()]
         }
       } else {
-        yield* [OtherMessage.encode(pkt).finish()]
+        yield* [OtherMessage.encode(pkt as any).finish()]
       }
     }
   },
@@ -80,12 +80,12 @@ export const OtherMessage = {
       | Iterable<Uint8Array | Uint8Array[]>,
   ): AsyncIterable<OtherMessage> {
     for await (const pkt of source) {
-      if (Array.isArray(pkt)) {
-        for (const p of pkt) {
+      if (globalThis.Array.isArray(pkt)) {
+        for (const p of pkt as any) {
           yield* [OtherMessage.decode(p)]
         }
       } else {
-        yield* [OtherMessage.decode(pkt)]
+        yield* [OtherMessage.decode(pkt as any)]
       }
     }
   },
@@ -133,8 +133,8 @@ export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Long
   ? string | number | Long
-  : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
+  : T extends globalThis.Array<infer U>
+  ? globalThis.Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
   ? ReadonlyArray<DeepPartial<U>>
   : T extends { $case: string }
@@ -161,14 +161,14 @@ function toTimestamp(date: Date): Timestamp {
 function fromTimestamp(t: Timestamp): Date {
   let millis = (t.seconds.toNumber() || 0) * 1_000
   millis += (t.nanos || 0) / 1_000_000
-  return new Date(millis)
+  return new globalThis.Date(millis)
 }
 
 function fromJsonTimestamp(o: any): Date {
-  if (o instanceof Date) {
+  if (o instanceof globalThis.Date) {
     return o
   } else if (typeof o === 'string') {
-    return new Date(o)
+    return new globalThis.Date(o)
   } else {
     return fromTimestamp(Timestamp.fromJSON(o))
   }
