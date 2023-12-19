@@ -22,7 +22,7 @@ The available make targets are:
  - `fix`: run golangci-lint --fix on the project.
  - `list`: list go module dependencies
  - `outdated`: list outdated go module dependencies
- 
+
 To generate the TypeScript and Go code:
 
  - `yarn install`
@@ -67,6 +67,24 @@ $ make gengo
 ```
 
 The Makefile will download the tools using Go to a bin dir.
+
+## Developing on MacOS
+
+On MacOS, some homebrew packages are required for `yarn gen`:
+
+```
+brew install bash make coreutils gnu-sed findutils protobuf
+brew link --overwrite protobuf
+```
+
+Add to your .bashrc or .zshrc:
+
+```
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+```
 
 ## Support
 
