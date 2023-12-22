@@ -12,12 +12,6 @@ You can create a new repository with this template [on GitHub].
 
 [on GitHub]: https://github.com/aperturerobotics/protobuf-project
 
-## Demo
-
-**This branch implements a starpc service and demo.**
-
-To run the demo: **yarn** then **yarn run demo**.
-
 ## Makefile
 
 The available make targets are:
