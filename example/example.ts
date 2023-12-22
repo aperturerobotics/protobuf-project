@@ -1,7 +1,6 @@
-import { WebSocketConn } from 'starpc/dist/srpc/websocket.js'
-import { EchoerClientImpl, EchoMsg } from 'starpc/dist/echo/index.js'
+import { WebSocketConn, EchoerClientImpl, EchoMsg  } from 'starpc'
 import { pushable } from 'it-pushable'
-import WebSocket from 'isomorphic-ws'
+import WebSocket from '@aptre/it-ws/web-socket'
 
 async function runRPC() {
   const addr = 'ws://localhost:5050/demo'
