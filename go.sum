@@ -4,8 +4,12 @@ github.com/aperturerobotics/protobuf-go v1.31.1-0.20231012212426-9cf9f0f94f47 h1
 github.com/aperturerobotics/protobuf-go v1.31.1-0.20231012212426-9cf9f0f94f47/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqwMG9pJV4I=
 github.com/aperturerobotics/starpc v0.22.4 h1:w4+S0RffEdZ2WTDTSGTvknCKFS/g1QxkxAsXdcB90+c=
 github.com/aperturerobotics/starpc v0.22.4/go.mod h1:yR9hgDuSlV5iWg1yLYk2Wqm+owpy5ogWugbmPBvD0pg=
+github.com/aperturerobotics/starpc v0.22.5 h1:/3T5pl9Te5zDM9eo3Rj7OWsUwYpq7M5WoCL00ILLTMY=
+github.com/aperturerobotics/starpc v0.22.5/go.mod h1:H5mynRN+LX7IHEdTvtKykUWD5izb7GuSpwNpIiATg4g=
 github.com/aperturerobotics/util v1.8.3 h1:P+nU185SJKSzXXYTc1kdnzt6KNvxgV1ke0jbxltfwaI=
 github.com/aperturerobotics/util v1.8.3/go.mod h1:idhGuFuAatygqticAnPcSZhef8yV7TYufLUw1Qfj4Cg=
+github.com/aperturerobotics/util v1.11.0 h1:SpbpNw23DACYkiZ9cCauP98Nwg73T04YkfD4E/WZ2Hc=
+github.com/aperturerobotics/util v1.11.0/go.mod h1:d84OAQAGXCpl7JOBstnal91Lm6nKgk+vBgtHPgxBYrQ=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -26,6 +30,8 @@ github.com/libp2p/go-libp2p v0.32.2/go.mod h1:E0LKe+diV/ZVJVnOJby8VC5xzHF0660osg
 github.com/libp2p/go-libp2p-testing v0.12.0 h1:EPvBb4kKMWO29qP4mZGyhVzUyR25dvfUIK5WDu6iPUA=
 github.com/libp2p/go-yamux/v4 v4.0.1 h1:FfDR4S1wj6Bw2Pqbc8Uz7pCxeRBPbwsBbEdfwiCypkQ=
 github.com/libp2p/go-yamux/v4 v4.0.1/go.mod h1:NWjl8ZTLOGlozrXSOZ/HlfG++39iKNnM5wwmtQP1YB4=
+github.com/libp2p/go-yamux/v4 v4.0.2-0.20231213140704-4c5812896512 h1:QvLt0Hr2Qmex+9wrv/tBeDsZ5AutKdy6ZF7pGTyEeQY=
+github.com/libp2p/go-yamux/v4 v4.0.2-0.20231213140704-4c5812896512/go.mod h1:OsNeDpmxccy93bUsruLEdsqIuO1VbBOFsQ4c4GfwenE=
 github.com/minio/sha256-simd v1.0.1 h1:6kaan5IFmwTNynnKKpDHe6FWHohJOHhCPchzK49dzMM=
 github.com/minio/sha256-simd v1.0.1/go.mod h1:Pz6AKMiUdngCLpeTL/RJY1M9rUuPMYujV5xJjtbRSN8=
 github.com/mr-tron/base58 v1.2.0 h1:T/HDJBh4ZCPbU39/+c3rRvE0uKBQlU27+QI8LJ4t64o=
