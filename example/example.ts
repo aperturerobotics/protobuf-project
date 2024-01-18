@@ -1,4 +1,4 @@
-import { WebSocketConn, EchoerClientImpl, EchoMsg  } from 'starpc'
+import { WebSocketConn, EchoerClientImpl, EchoMsg } from 'starpc'
 import { pushable } from 'it-pushable'
 import WebSocket from '@aptre/it-ws/web-socket'
 
