@@ -12,11 +12,33 @@ You can create a new repository with this template [on GitHub].
 
 [on GitHub]: https://github.com/aperturerobotics/protobuf-project
 
-## Demo
+## Usage
 
-**This branch implements a starpc service and demo.**
+Protobuf imports use Go paths and package names:
 
-To run the demo: **yarn** then **yarn run demo**.
+```protobuf
+syntax = "proto3";
+package example;
+
+// Import .proto files using Go-style import paths.
+import "github.com/aperturerobotics/controllerbus/controller/controller.proto";
+
+// GetBusInfoResponse is the response type for GetBusInfo.
+message GetBusInfoResponse {
+  // RunningControllers is the list of running controllers.
+  repeated controller.Info running_controllers = 1;
+}
+```
+
+To generate the protobuf files:
+
+```bash
+$ git add -A
+$ yarn install
+$ yarn gen
+```
+
+The Makefile will download the tools using Go to a bin dir.
 
 ## Makefile
 
@@ -51,31 +73,11 @@ Other available branches:
 
 **starpc** is the only RPC library currently to support bidirectional RPC streams in the web browser over WebSocket or other two-way channels.
 
-## Usage
+## Demo
 
-Protobuf imports use Go paths and package names:
+**This branch implements a starpc service and demo.**
 
-```protobuf
-syntax = "proto3";
-package example;
-
-import "github.com/aperturerobotics/controllerbus/controller/controller.proto";
-
-// GetBusInfoResponse is the response type for GetBusInfo.
-message GetBusInfoResponse {
-  // RunningControllers is the list of running controllers.
-  repeated controller.Info running_controllers = 1;
-}
-```
-
-To generate the protobuf files:
-
-```bash
-$ git add -A
-$ make gengo
-```
-
-The Makefile will download the tools using Go to a bin dir.
+To run the demo: **yarn** then **yarn run demo**.
 
 ## Developing on MacOS
 
