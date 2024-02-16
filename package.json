@@ -31,7 +31,7 @@
     "depcheck": "^1.4.3",
     "patch-package": "^8.0.0",
     "prettier": "^3.0.3",
-    "ts-poet": "6.6.0",
+    "ts-poet": "6.7.0",
     "ts-proto": "^1.167.0",
     "typescript": "^5.2.2"
   },
@@ -42,7 +42,7 @@
     "it-pushable": "^3.2.3",
     "long": "^5.2.3",
     "protobufjs": "^7.2.4",
-    "starpc": "^0.23.0",
+    "starpc": "^0.25.0",
     "utf-8-validate": "^6.0.3"
   }
 }
