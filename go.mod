@@ -9,13 +9,13 @@ replace (
 )
 
 require (
-	github.com/aperturerobotics/starpc v0.23.2
+	github.com/aperturerobotics/starpc v0.25.5
 	github.com/sirupsen/logrus v1.9.3
 	google.golang.org/protobuf v1.32.0
 )
 
 require (
-	github.com/aperturerobotics/util v1.13.3 // indirect
+	github.com/aperturerobotics/util v1.13.5 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.2.0 // indirect
 	github.com/ipfs/go-cid v0.4.1 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.5 // indirect
