@@ -42,7 +42,7 @@
     "it-pushable": "^3.2.3",
     "long": "^5.2.3",
     "protobufjs": "^7.2.4",
-    "starpc": "^0.26.0",
+    "starpc": "^0.27.0",
     "utf-8-validate": "^6.0.3"
   }
 }
