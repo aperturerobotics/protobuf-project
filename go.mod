@@ -9,19 +9,19 @@ replace (
 )
 
 require (
-	github.com/aperturerobotics/starpc v0.27.2
+	github.com/aperturerobotics/starpc v0.27.3
 	github.com/sirupsen/logrus v1.9.3
 	google.golang.org/protobuf v1.33.0
 )
 
 require (
-	github.com/aperturerobotics/util v1.14.3 // indirect
+	github.com/aperturerobotics/util v1.15.1 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.2.0 // indirect
 	github.com/ipfs/go-cid v0.4.1 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
 	github.com/libp2p/go-buffer-pool v0.1.0 // indirect
-	github.com/libp2p/go-libp2p v0.33.0 // indirect
-	github.com/libp2p/go-yamux/v4 v4.0.2-0.20240206065824-7222fbc3459d // indirect
+	github.com/libp2p/go-libp2p v0.33.1 // indirect
+	github.com/libp2p/go-yamux/v4 v4.0.2-0.20240314112558-188b1fda7dc9 // indirect
 	github.com/minio/sha256-simd v1.0.1 // indirect
 	github.com/mr-tron/base58 v1.2.0 // indirect
 	github.com/multiformats/go-base32 v0.1.0 // indirect
