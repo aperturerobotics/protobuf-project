@@ -12,6 +12,8 @@ github.com/aperturerobotics/starpc v0.26.1 h1:DTbzDJfLITqt99fkQjuaiVFDuyGQ4AuDmB
 github.com/aperturerobotics/starpc v0.26.1/go.mod h1:U+FHcs7xgrZjRdPdAzGHobLaV1oUuNr12akaC2QUXpo=
 github.com/aperturerobotics/starpc v0.27.2 h1:S5fUo9ila01XtE2zMB9qLvm/dTZhl+4EQK+XXQkiZbA=
 github.com/aperturerobotics/starpc v0.27.2/go.mod h1:CIhS3mfMjNui/8xjAOq51DbR2khw8sYEe7yLgIv5tD4=
+github.com/aperturerobotics/starpc v0.27.3 h1:spXXh7FsNd32dIOnBElRWQeYSAJLIulVz3xI6O+ezGg=
+github.com/aperturerobotics/starpc v0.27.3/go.mod h1:pAETN2gY3W2i+A7CGZgFMvc594H3HN65VMylF8Fp8eY=
 github.com/aperturerobotics/util v1.12.0 h1:jdEU/xbApQIuc4cq2/JRnJmA21243StGsODIU5vekik=
 github.com/aperturerobotics/util v1.12.0/go.mod h1:d84OAQAGXCpl7JOBstnal91Lm6nKgk+vBgtHPgxBYrQ=
 github.com/aperturerobotics/util v1.13.3 h1:N4JXKYql0R/A2hMuV79SZ2vaftf8tiN8DUJ8sGc7Rso=
@@ -22,6 +24,8 @@ github.com/aperturerobotics/util v1.13.6 h1:8FKBjj+vs23QZBiwkGod5WUY19Cisda48Rbg
 github.com/aperturerobotics/util v1.13.6/go.mod h1:8AfpGb9RJqUItLBb5ec3sprpl9swYyHlgOw0HzkE+S8=
 github.com/aperturerobotics/util v1.14.3 h1:tn8eET9vlFwnveFY+rt4VbbMertQW8dcd+V5fK7SyHo=
 github.com/aperturerobotics/util v1.14.3/go.mod h1:1+G2THhT7VCmR7xeRlqDnyEtRFvONWoPft19xTHvbyk=
+github.com/aperturerobotics/util v1.15.1 h1:cCNuxDI+ATnv++e5NHVDXKGaqMiPiwag9xMNQsYOspA=
+github.com/aperturerobotics/util v1.15.1/go.mod h1:NW+A6UUfEv+BsLrfnqwXR9g6CO97Hwe+1En9zGeW1so=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -43,12 +47,16 @@ github.com/libp2p/go-libp2p v0.32.2 h1:s8GYN4YJzgUoyeYNPdW7JZeZ5Ee31iNaIBfGYMAY4
 github.com/libp2p/go-libp2p v0.32.2/go.mod h1:E0LKe+diV/ZVJVnOJby8VC5xzHF0660osg71skcxJvk=
 github.com/libp2p/go-libp2p v0.33.0 h1:yTPSr8sJRbfeEYXyeN8VPVSlTlFjtMUwGDRniwaf/xQ=
 github.com/libp2p/go-libp2p v0.33.0/go.mod h1:RIJFRQVUBKy82dnW7J5f1homqqv6NcsDJAl3e7CRGfE=
+github.com/libp2p/go-libp2p v0.33.1 h1:tvJl9b9M6nSLBtZSXSguq+/lRhRj2oLRkyhBmQNMFLA=
+github.com/libp2p/go-libp2p v0.33.1/go.mod h1:zOUTMjG4I7TXwMndNyOBn/CNtVBLlvBlnxfi+8xzx+E=
 github.com/libp2p/go-libp2p-testing v0.12.0 h1:EPvBb4kKMWO29qP4mZGyhVzUyR25dvfUIK5WDu6iPUA=
 github.com/libp2p/go-libp2p-testing v0.12.0/go.mod h1:KcGDRXyN7sQCllucn1cOOS+Dmm7ujhfEyXQL5lvkcPg=
 github.com/libp2p/go-yamux/v4 v4.0.2-0.20231213140704-4c5812896512 h1:QvLt0Hr2Qmex+9wrv/tBeDsZ5AutKdy6ZF7pGTyEeQY=
 github.com/libp2p/go-yamux/v4 v4.0.2-0.20231213140704-4c5812896512/go.mod h1:OsNeDpmxccy93bUsruLEdsqIuO1VbBOFsQ4c4GfwenE=
 github.com/libp2p/go-yamux/v4 v4.0.2-0.20240206065824-7222fbc3459d h1:Lag2VlBLRAiYKMnbIJGSDFmfSIoaeQRZ3wJXt91ZWV8=
 github.com/libp2p/go-yamux/v4 v4.0.2-0.20240206065824-7222fbc3459d/go.mod h1:OsNeDpmxccy93bUsruLEdsqIuO1VbBOFsQ4c4GfwenE=
+github.com/libp2p/go-yamux/v4 v4.0.2-0.20240314112558-188b1fda7dc9 h1:8tAUqfDLYiZnTHlSQvA3wgGdqMSj8F5HBfAOnyARdR4=
+github.com/libp2p/go-yamux/v4 v4.0.2-0.20240314112558-188b1fda7dc9/go.mod h1:PGP+3py2ZWDKABvqstBZtMnixEHNC7U/odnGylzur5o=
 github.com/minio/sha256-simd v1.0.1 h1:6kaan5IFmwTNynnKKpDHe6FWHohJOHhCPchzK49dzMM=
 github.com/minio/sha256-simd v1.0.1/go.mod h1:Pz6AKMiUdngCLpeTL/RJY1M9rUuPMYujV5xJjtbRSN8=
 github.com/mr-tron/base58 v1.2.0 h1:T/HDJBh4ZCPbU39/+c3rRvE0uKBQlU27+QI8LJ4t64o=
