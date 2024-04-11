@@ -61,6 +61,7 @@ To generate the TypeScript and Go code:
 Other available branches:
 
  - **norpc**: does not have any RPC library.
+ - **protobuf-lite**: uses the [go-protobuf-lite] library (no reflection)
  - **drpc**: uses the [dRPC] rpc library instead of [starpc].
  - **grpc**: uses the [gRPC] rpc library instead of [starpc].
  - **starpc**: uses the [starpc] rpc library (same as main).
@@ -70,6 +71,7 @@ Other available branches:
 [gRPC]: https://github.com/grpc/grpc
 [starpc]: https://github.com/aperturerobotics/starpc
 [Twirp]: https://github.com/twitchtv/twirp
+[go-protobuf-lite]: https://github.com/aperturerobotics/go-protobuf-lite
 
 **starpc** is the only RPC library currently to support bidirectional RPC streams in the web browser over WebSocket or other two-way channels.
 
