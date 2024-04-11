@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { Empty } from '@aperturerobotics/ts-proto-common-types/google/protobuf/empty.pb.js'
 import { Timestamp } from '@aperturerobotics/ts-proto-common-types/google/protobuf/timestamp.pb.js'
 import Long from 'long'
 import _m0 from 'protobufjs/minimal.js'
@@ -118,6 +119,58 @@ export const OtherMessage = {
     message.timestamp = object.timestamp ?? undefined
     return message
   },
+}
+
+/** AccessVolumes is a service to access available volumes over RPC. */
+export interface AccessVolumes {
+  WatchVolumeInfo(request: Empty, abortSignal?: AbortSignal): Promise<Empty>
+}
+
+export const AccessVolumesServiceName = 'other.AccessVolumes'
+export class AccessVolumesClientImpl implements AccessVolumes {
+  private readonly rpc: Rpc
+  private readonly service: string
+  constructor(rpc: Rpc, opts?: { service?: string }) {
+    this.service = opts?.service || AccessVolumesServiceName
+    this.rpc = rpc
+    this.WatchVolumeInfo = this.WatchVolumeInfo.bind(this)
+  }
+  WatchVolumeInfo(request: Empty, abortSignal?: AbortSignal): Promise<Empty> {
+    const data = Empty.encode(request).finish()
+    const promise = this.rpc.request(
+      this.service,
+      'WatchVolumeInfo',
+      data,
+      abortSignal || undefined,
+    )
+    return promise.then((data) => Empty.decode(_m0.Reader.create(data)))
+  }
+}
+
+/** AccessVolumes is a service to access available volumes over RPC. */
+export type AccessVolumesDefinition = typeof AccessVolumesDefinition
+export const AccessVolumesDefinition = {
+  name: 'AccessVolumes',
+  fullName: 'other.AccessVolumes',
+  methods: {
+    watchVolumeInfo: {
+      name: 'WatchVolumeInfo',
+      requestType: Empty,
+      requestStream: false,
+      responseType: Empty,
+      responseStream: false,
+      options: {},
+    },
+  },
+} as const
+
+interface Rpc {
+  request(
+    service: string,
+    method: string,
+    data: Uint8Array,
+    abortSignal?: AbortSignal,
+  ): Promise<Uint8Array>
 }
 
 type Builtin =
