@@ -2,21 +2,18 @@ module github.com/aperturerobotics/protobuf-project
 
 go 1.22
 
-toolchain go1.22.2
-
 // aperture: use compatibility forks
-replace (
-	github.com/sirupsen/logrus => github.com/aperturerobotics/logrus v1.9.4-0.20240119050608-13332fb58195 // aperture
-	google.golang.org/protobuf => github.com/aperturerobotics/protobuf-go v1.32.1-0.20240322235918-b46c9358eab6 // aperture
-)
+replace github.com/sirupsen/logrus => github.com/aperturerobotics/logrus v1.9.4-0.20240119050608-13332fb58195 // aperture
+
+require github.com/aperturerobotics/starpc v0.28.1 // latest
 
 require (
-	github.com/aperturerobotics/starpc v0.28.1
+	github.com/aperturerobotics/vtprotobuf-lite v0.1.4
 	github.com/sirupsen/logrus v1.9.3
-	google.golang.org/protobuf v1.33.0
 )
 
 require (
+	github.com/aperturerobotics/protobuf-go-lite v0.1.2-0.20240411060140-6b37589e78ce // indirect
 	github.com/aperturerobotics/util v1.16.5 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.2.0 // indirect
 	github.com/ipfs/go-cid v0.4.1 // indirect
@@ -40,6 +37,7 @@ require (
 	golang.org/x/crypto v0.19.0 // indirect
 	golang.org/x/exp v0.0.0-20240409090435-93d18d7e34b8 // indirect
 	golang.org/x/sys v0.18.0 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 	lukechampine.com/blake3 v1.2.1 // indirect
 	nhooyr.io/websocket v1.8.11 // indirect
 )

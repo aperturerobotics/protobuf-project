@@ -3,9 +3,10 @@
 SHELL:=bash
 ESBUILD=hack/bin/esbuild
 PROTOWRAP=hack/bin/protowrap
-PROTOC_GEN_GO=hack/bin/protoc-gen-go
+PROTOC_GEN_GO=hack/bin/protoc-gen-go-lite
 PROTOC_GEN_STARPC=hack/bin/protoc-gen-go-starpc
-PROTOC_GEN_VTPROTO=hack/bin/protoc-gen-go-vtproto
+PROTOC_GEN_VTPROTO=hack/bin/protoc-gen-go-lite-vtproto
+PROTOC_GEN_DEBUG=hack/bin/protoc-gen-debug
 GOIMPORTS=hack/bin/goimports
 GOLANGCI_LINT=hack/bin/golangci-lint
 GO_MOD_OUTDATED=hack/bin/go-mod-outdated
@@ -29,14 +30,20 @@ $(ESBUILD):
 $(PROTOC_GEN_GO):
 	cd ./hack; \
 	go build -v \
-		-o ./bin/protoc-gen-go \
-		google.golang.org/protobuf/cmd/protoc-gen-go
+		-o ./bin/protoc-gen-go-lite \
+		github.com/aperturerobotics/protobuf-go-lite/cmd/protoc-gen-go-lite
 
 $(PROTOC_GEN_VTPROTO):
 	cd ./hack; \
 	go build -v \
-		-o ./bin/protoc-gen-go-vtproto \
-		github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto
+		-o ./bin/protoc-gen-go-lite-vtproto \
+		github.com/aperturerobotics/vtprotobuf-lite/cmd/protoc-gen-go-lite-vtproto
+
+$(PROTOC_GEN_DEBUG):
+	cd ./hack; \
+	go build -v \
+		-o ./bin/protoc-gen-debug \
+		github.com/lyft/protoc-gen-star/v2/protoc-gen-debug
 
 $(PROTOC_GEN_STARPC):
 	cd ./hack; \
@@ -71,8 +78,8 @@ $(GO_MOD_OUTDATED):
 # Add --go-grpc_out=$$(pwd)/vendor to use the GRPC protoc generator.
 # .. and remove the "grpc" option from the vtprotobuf features list.
 
-.PHONY: gengo
-gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO) $(PROTOC_GEN_STARPC)
+.PHONY: gendebug
+gendebug: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_DEBUG)
 	shopt -s globstar; \
 	set -eo pipefail; \
 	export PROJECT=$$(go list -m); \
@@ -82,9 +89,33 @@ gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO) $(PROTOC
 	ln -s $$(pwd) $$(pwd)/vendor/$${PROJECT} ; \
 	$(PROTOWRAP) \
 		-I $$(pwd)/vendor \
-		--go_out=$$(pwd)/vendor \
-		--go-vtproto_out=$$(pwd)/vendor \
-		--go-vtproto_opt=features=marshal+unmarshal+size+equal+clone \
+		--debug_out=".:." \
+		--proto_path $$(pwd)/vendor \
+		--print_structure \
+		--only_specified_files \
+		$$(\
+			git \
+				ls-files "example/other/other.proto" |\
+				xargs printf -- \
+				"$$(pwd)/vendor/$${PROJECT}/%s "); \
+	rm $$(pwd)/vendor/$${PROJECT} || true
+	$(GOIMPORTS) -w ./
+
+.PHONY: gengo
+gengo: $(GOIMPORTS) $(PROTOWRAP) $(PROTOC_GEN_GO) $(PROTOC_GEN_VTPROTO) $(PROTOC_GEN_STARPC)
+	shopt -s globstar; \
+	set -eo pipefail; \
+	export PROJECT=$$(go list -m); \
+	export PATH=$$(pwd)/hack/bin:$${PATH}; \
+	export PROTOBUF_GO_TYPES_PKG="github.com/aperturerobotics/vtprotobuf-lite/types/"; \
+	mkdir -p $$(pwd)/vendor/$$(dirname $${PROJECT}); \
+	rm $$(pwd)/vendor/$${PROJECT} || true; \
+	ln -s $$(pwd) $$(pwd)/vendor/$${PROJECT} ; \
+	$(PROTOWRAP) \
+		-I $$(pwd)/vendor \
+		--go-lite_out=$$(pwd)/vendor \
+		--go-lite-vtproto_out=$$(pwd)/vendor \
+		--go-lite-vtproto_opt=features=marshal+unmarshal+size+equal+clone \
 		--go-starpc_out=$$(pwd)/vendor \
 		--proto_path $$(pwd)/vendor \
 		--print_structure \

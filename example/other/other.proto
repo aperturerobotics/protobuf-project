@@ -2,8 +2,14 @@ syntax = "proto3";
 package other;
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 message OtherMessage {
   // Timestamp is an example of a Date encoding.
   .google.protobuf.Timestamp timestamp = 1;
+}
+
+// AccessVolumes is a service to access available volumes over RPC.
+service AccessVolumes {
+  rpc WatchVolumeInfo(.google.protobuf.Empty) returns (.google.protobuf.Empty);
 }

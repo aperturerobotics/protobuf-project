@@ -1,17 +1,27 @@
 module hack
 
-go 1.21
+go 1.22
 
-replace google.golang.org/protobuf => github.com/aperturerobotics/protobuf-go v1.32.1-0.20240322235918-b46c9358eab6 // aperture
+// aperture: use compatibility forks
+replace (
+	github.com/sirupsen/logrus => github.com/aperturerobotics/logrus v1.9.4-0.20240119050608-13332fb58195 // aperture
+	google.golang.org/protobuf => github.com/aperturerobotics/protobuf-go v1.33.1-0.20240411062030-e36f75e0a3b8 // aperture
+)
 
 require (
 	github.com/aperturerobotics/goprotowrap v0.3.1 // master
+	github.com/aperturerobotics/protobuf-go-lite v0.1.2-0.20240411062136-c962540e7ee8 // master
 	github.com/aperturerobotics/starpc v0.22.7
+	github.com/aperturerobotics/vtprotobuf-lite v0.1.4-0.20240411060409-252d7a0da027 // main
+)
+
+require (
 	github.com/evanw/esbuild v0.19.10
 	github.com/golangci/golangci-lint v1.55.2
-	github.com/planetscale/vtprotobuf v0.5.0
+	github.com/lyft/protoc-gen-star/v2 v2.0.3
 	github.com/psampaz/go-mod-outdated v0.9.0
-	google.golang.org/protobuf v1.33.0
+	golang.org/x/tools v0.14.0
+	mvdan.cc/gofumpt v0.5.0
 )
 
 require (
@@ -187,12 +197,11 @@ require (
 	golang.org/x/sync v0.4.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
-	golang.org/x/tools v0.14.0 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	honnef.co/go/tools v0.4.6 // indirect
-	mvdan.cc/gofumpt v0.5.0 // indirect
 	mvdan.cc/interfacer v0.0.0-20180901003855-c20040233aed // indirect
 	mvdan.cc/lint v0.0.0-20170908181259-adc824a0674b // indirect
 	mvdan.cc/unparam v0.0.0-20221223090309-7455f1af531d // indirect
