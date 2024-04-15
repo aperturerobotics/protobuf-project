@@ -8,12 +8,12 @@ replace github.com/sirupsen/logrus => github.com/aperturerobotics/logrus v1.9.4-
 require github.com/aperturerobotics/starpc v0.28.1 // latest
 
 require (
-	github.com/aperturerobotics/protobuf-go-lite v0.2.1-0.20240415074137-0656b8a63129
+	github.com/aperturerobotics/protobuf-go-lite v0.2.1
 	github.com/aperturerobotics/util v1.16.5 // indirect
 	github.com/sirupsen/logrus v1.9.3
 )
 
-require google.golang.org/protobuf v1.33.0
+require google.golang.org/protobuf v1.33.0 // indirect
 
 require (
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.2.0 // indirect

@@ -1,7 +1,7 @@
 github.com/aperturerobotics/logrus v1.9.4-0.20240119050608-13332fb58195 h1:uyeD1J23j/kFiCFO7rx+GQA4tCqOEy3IJyMK4f6vamE=
 github.com/aperturerobotics/logrus v1.9.4-0.20240119050608-13332fb58195/go.mod h1:naHLuLoDiP4jHNo9R0sCBMtWGeIprob74mVsIT4qYEQ=
-github.com/aperturerobotics/protobuf-go-lite v0.2.1-0.20240415074137-0656b8a63129 h1:JHiu8andMcsJ+b/l4WhruwR0HGKWdlfXGsIprqJ0t9A=
-github.com/aperturerobotics/protobuf-go-lite v0.2.1-0.20240415074137-0656b8a63129/go.mod h1:uGsGl8o72hBjkAqBVz2kepXKeA7BZDiqCZPyHjw2yws=
+github.com/aperturerobotics/protobuf-go-lite v0.2.1 h1:WKNYwkbh+PRZ2XDeF8LFAapD73JPok08+Uarlj9cMLg=
+github.com/aperturerobotics/protobuf-go-lite v0.2.1/go.mod h1:uGsGl8o72hBjkAqBVz2kepXKeA7BZDiqCZPyHjw2yws=
 github.com/aperturerobotics/starpc v0.28.1 h1:LxWUrRZhvZRZeeyWEWu3RNFoCyx9M6/TpNPfLKpul5c=
 github.com/aperturerobotics/starpc v0.28.1/go.mod h1:nFkiJ9LcjeZDY0rhm4ogIGVGV8KEWL85xBypG3blBeM=
 github.com/aperturerobotics/util v1.16.5 h1:zW6l07O1cCZMG+cbE08D5gv6p/tYfGipGRO5WaXpd1c=
