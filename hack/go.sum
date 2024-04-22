@@ -346,8 +346,6 @@ github.com/leonklingele/grouper v1.1.1 h1:suWXRU57D4/Enn6pXR0QVqqWWrnJ9Osrz+5rjt
 github.com/leonklingele/grouper v1.1.1/go.mod h1:uk3I3uDfi9B6PeUjsCKi6ndcf63Uy7snXgR4yDYQVDY=
 github.com/lufeee/execinquery v1.2.1 h1:hf0Ems4SHcUGBxpGN7Jz78z1ppVkP/837ZlETPCEtOM=
 github.com/lufeee/execinquery v1.2.1/go.mod h1:EC7DrEKView09ocscGHC+apXMIaorh4xqSxS/dy8SbM=
-github.com/lyft/protoc-gen-star/v2 v2.0.3 h1:/3+/2sWyXeMLzKd1bX+ixWKgEMsULrIivpDsuaF441o=
-github.com/lyft/protoc-gen-star/v2 v2.0.3/go.mod h1:amey7yeodaJhXSbf/TlLvWiqQfLOSpEk//mLlc+axEk=
 github.com/macabu/inamedparam v0.1.3 h1:2tk/phHkMlEL/1GNe/Yf6kkR/hkcUdAEY3L0hjYV1Mk=
 github.com/macabu/inamedparam v0.1.3/go.mod h1:93FLICAIk/quk7eaPPQvbzihUdn/QkGDwIZEoLtpH6I=
 github.com/magiconair/properties v1.8.6 h1:5ibWZ6iY0NctNGWo87LalDlEZ6R41TqbbDamhfG/Qzo=

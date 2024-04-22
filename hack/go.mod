@@ -13,7 +13,6 @@ require (
 require (
 	github.com/evanw/esbuild v0.20.2
 	github.com/golangci/golangci-lint v1.57.2
-	github.com/lyft/protoc-gen-star/v2 v2.0.3
 	github.com/psampaz/go-mod-outdated v0.9.0
 	golang.org/x/tools v0.20.0
 	mvdan.cc/gofumpt v0.6.0

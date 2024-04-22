@@ -1,5 +1,4 @@
-import { WebSocketConn, EchoerClientImpl, EchoMsg } from 'starpc'
-import { pushable } from 'it-pushable'
+import { WebSocketConn, EchoerClient, EchoMsg, messagePushable } from 'starpc'
 import WebSocket from '@aptre/it-ws/web-socket'
 
 async function runRPC() {
@@ -8,7 +7,7 @@ async function runRPC() {
   const ws = new WebSocket(addr)
   const channel = new WebSocketConn(ws, 'outbound')
   const client = channel.buildClient()
-  const demoServiceClient = new EchoerClientImpl(client)
+  const demoServiceClient = new EchoerClient(client)
 
   console.log('Calling Echo: unary call...')
   let result = await demoServiceClient.Echo({
@@ -17,7 +16,7 @@ async function runRPC() {
   console.log('success: output', result.body)
 
   // observable for client requests
-  const clientRequestStream = pushable<EchoMsg>({ objectMode: true })
+  const clientRequestStream = messagePushable<EchoMsg>()
   clientRequestStream.push({ body: 'Hello world from streaming request.' })
   clientRequestStream.end()
 
