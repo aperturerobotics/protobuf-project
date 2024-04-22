@@ -10,8 +10,9 @@
   "ignorePaths": ["hack"],
   "packageRules": [
     {
-    "matchManagers": ["gomod"],
-    "matchDepTypes": ["replace"],
-    "enabled": false
-  }]
+      "matchManagers": ["gomod"],
+      "matchDepTypes": ["replace", "toolchain"],
+      "enabled": false
+    }
+  ]
 }
