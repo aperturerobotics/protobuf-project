@@ -1,8 +1,9 @@
 ## protobuf-project template
 
-This is a repository template for projects using protobuf.
+This template uses [protobuf-go-lite] to generate reflection-free Go code and [protobuf-es-lite] for TypeScript interfaces.
 
-Supports **Go and TypeScript** with Go-style import paths.
+[protobuf-go-lite]: https://github.com/aperturerobotics/protobuf-go-lite
+[protobuf-es-lite]: https://github.com/aperturerobotics/protobuf-es-lite
 
 Uses a Makefile to download tools to ./hack/bin.
 
@@ -11,6 +12,10 @@ Includes targets for linting, checking outdated modules, etc.
 You can create a new repository with this template [on GitHub].
 
 [on GitHub]: https://github.com/aperturerobotics/protobuf-project
+
+Also check out the managed template at [template].
+
+[template]: https://github.com/aperturerobotics/template
 
 ## Usage
 
@@ -44,7 +49,7 @@ The Makefile will download the tools using Go to a bin dir.
 
 The available make targets are:
 
- - `gengo`: Generate protobuf files.
+ - `genproto`: Generate protobuf files.
  - `test`: run go test -v ./...
  - `lint`: run golangci-lint on the project.
  - `fix`: run golangci-lint --fix on the project.
@@ -70,12 +75,6 @@ Other available branches:
 [gRPC]: https://github.com/grpc/grpc
 [starpc]: https://github.com/aperturerobotics/starpc
 [Twirp]: https://github.com/twitchtv/twirp
-
-**starpc** is the only RPC library currently to support bidirectional RPC streams in the web browser over WebSocket or other two-way channels.
-
-[protobuf-go-lite] is used with starpc to support reflection-free protobufs.
-
-[protobuf-go-lite]: https://github.com/aperturerobotics/protobuf-go-lite
 
 ## Demo
 

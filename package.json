@@ -3,21 +3,24 @@
   "version": "0.0.0",
   "description": "Example of a Starpc RPC project.",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "build": "tsc --project tsconfig.build.json --outDir ./dist/",
     "check": "npm run typecheck",
     "typecheck": "tsc --noEmit",
-    "deps": "depcheck --ignore-patterns=.eslintrc.js,package.json --ignores depcheck,prettier,typescript,starpc,@aperturerobotics/ts-common,@go/github.com",
+    "deps": "depcheck --ignore-patterns=.eslintrc.cjs,package.json --ignores depcheck,prettier,typescript,starpc,@aptre/common,@go/github.com",
     "codegen": "npm run gen",
     "ci": "npm run build && npm run lint:js && npm run lint:go",
-    "format": "prettier --write './!(vendor|dist)/**/(*.ts|*.tsx|*.html|*.css)'",
+    "format": "npm run format:js && npm run format:go",
+    "format:js": "prettier --write './!(vendor|dist)/**/(*.ts|*.tsx|*.js|*.html|*.css)'",
+    "format:go": "make format",
     "gen": "make genproto",
     "test": "make test && npm run check",
     "test:js": "echo No JS tests.",
     "demo": "make demo",
     "lint": "npm run lint:go && npm run lint:js",
     "lint:go": "make lint",
-    "lint:js": "ESLINT_USE_FLAT_CONFIG=false eslint -c .eslintrc.js ./",
+    "lint:js": "ESLINT_USE_FLAT_CONFIG=false eslint -c .eslintrc.cjs ./",
     "precommit": "npm run format",
     "prepare": "go mod vendor"
   },
@@ -26,16 +29,14 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@aperturerobotics/ts-common": "^0.11.0",
-    "@bufbuild/protoc-gen-es": "^1.8.0",
+    "@aptre/common": "^0.14.9",
     "depcheck": "^1.4.3",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@aperturerobotics/ts-proto-common-types": "^0.3.0",
     "@aptre/it-ws": "^1.0.0",
-    "@bufbuild/protobuf": "^1.8.0",
+    "@aptre/protobuf-es-lite": "^0.2.14",
     "it-pushable": "^3.2.3",
     "starpc": "^0.31.1"
   }

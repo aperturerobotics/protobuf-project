@@ -5,9 +5,9 @@ go 1.22
 replace google.golang.org/protobuf => github.com/aperturerobotics/protobuf-go v1.33.1-0.20240411062030-e36f75e0a3b8 // aperture
 
 require (
-	github.com/aperturerobotics/goprotowrap v0.3.1
-	github.com/aperturerobotics/protobuf-go-lite v0.2.1-0.20240415075117-c0684ee95eef
-	github.com/aperturerobotics/starpc v0.28.1
+	github.com/aperturerobotics/goprotowrap v0.3.1 // latest
+	github.com/aperturerobotics/protobuf-go-lite v0.6.0 // latest
+	github.com/aperturerobotics/starpc v0.31.12 // latest
 )
 
 require (
@@ -183,7 +183,7 @@ require (
 	go.uber.org/automaxprocs v1.5.3 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
-	golang.org/x/exp v0.0.0-20240409090435-93d18d7e34b8 // indirect
+	golang.org/x/exp v0.0.0-20240416160154-fe59bbe5cc7f // indirect
 	golang.org/x/exp/typeparams v0.0.0-20240314144324-c7f7c6466f7f // indirect
 	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/sync v0.7.0 // indirect
