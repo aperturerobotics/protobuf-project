@@ -3,13 +3,13 @@ module github.com/aperturerobotics/protobuf-project
 go 1.22
 
 require (
-	github.com/aperturerobotics/protobuf-go-lite v0.6.0 // latest
-	github.com/aperturerobotics/starpc v0.31.12 // latest
-	github.com/aperturerobotics/util v1.22.1 // indirect
+	github.com/aperturerobotics/protobuf-go-lite v0.6.1 // latest
+	github.com/aperturerobotics/starpc v0.32.2 // latest
+	github.com/aperturerobotics/util v1.23.0 // indirect
 	github.com/sirupsen/logrus v1.9.3
 )
 
-require google.golang.org/protobuf v1.33.0 // indirect
+require google.golang.org/protobuf v1.33.0
 
 require (
 	github.com/aperturerobotics/json-iterator-lite v1.0.0 // indirect
