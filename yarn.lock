@@ -3,18 +3,18 @@
 
 
 "@aptre/common@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@aptre/common/-/common-0.16.1.tgz#8e5d8e20492bcd75c13dc98003f54f1cabece869"
-  integrity sha512-tguDu5LE1QgIfvD8Hr7nGUHosFWNWUJl3HY5cR7YtgcnqLsSCUAjmNhYiNmTyuLQ/KdRAGJhwULo0xuy2NUicA==
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@aptre/common/-/common-0.16.4.tgz#db85fac6c8af08a5fb09d595541a970f4baa14dc"
+  integrity sha512-yLVl9070vq608ihawMYO458Ghkq6fFHNfDdMY86JEWDr+Fkff0D/9GLnf+e43/30jbSvsthcYYhqo8wccmr53g==
   dependencies:
-    "@aptre/protobuf-es-lite" "^0.4.3"
+    "@aptre/protobuf-es-lite" "^0.4.4"
     "@typescript-eslint/eslint-plugin" "^7.8.0"
     "@typescript-eslint/parser" "^7.8.0"
     eslint "^9.2.0"
     eslint-config-prettier "^9.0.0"
     eslint-plugin-react-hooks "^4.6.1"
     eslint-plugin-unused-imports "^3.2.0"
-    starpc "^0.32.3"
+    starpc "^0.32.9"
 
 "@aptre/it-ws@^1.0.0":
   version "1.0.0"
@@ -27,10 +27,10 @@
     uint8arrays "^5.0.0"
     ws "^8.4.0"
 
-"@aptre/protobuf-es-lite@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@aptre/protobuf-es-lite/-/protobuf-es-lite-0.4.3.tgz#1839154a24ac19fb9f4f3bdb4fb0eccd9abdfebc"
-  integrity sha512-qiWodq4qZ6hAbgzMKHCGjaMoQr/Zj0gn8MGkZq6Pf9T93zEuafl0EijDblqRawmU7Ow9Ogzg/kq6G5bUWGvcpQ==
+"@aptre/protobuf-es-lite@^0.4.3", "@aptre/protobuf-es-lite@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@aptre/protobuf-es-lite/-/protobuf-es-lite-0.4.4.tgz#2c5a305bd984a197c4b0fa57a5d23165ddac6535"
+  integrity sha512-fw5ukLnaK0b27oFir5vxucL/g7cv7Dv7298rBWNH2VcFVkYmr1dDJTAWpoSPc9OvJbGFX5rvdg0b8pRn5ZM0FA==
   dependencies:
     "@typescript/vfs" "^1.5.0"
     lz-string "^1.5.0"
@@ -1780,13 +1780,13 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
 
-starpc@^0.32.3, starpc@^0.32.8:
-  version "0.32.8"
-  resolved "https://registry.yarnpkg.com/starpc/-/starpc-0.32.8.tgz#a5d0ace194240d54dbd3c654adf8a1080bbfd760"
-  integrity sha512-pKD1x9YW54PI278T+b6KrqS63P7y/pojGgACgNC+RsE9QLrN1B8+fldKPZaY8ec9OEvbd0G+A7AF386GzRbRLA==
+starpc@^0.32.8, starpc@^0.32.9:
+  version "0.32.9"
+  resolved "https://registry.yarnpkg.com/starpc/-/starpc-0.32.9.tgz#977587abfb0791001005c270c6afad1dbb4ab285"
+  integrity sha512-GSonUa4mpoxVF/UHw8Sp2f/MsyV54pf4TRYuD40YenpX3o2Qs0s0gkb9JgasDQUoisQ4Ija1uuYZ6LQd9ZG4OA==
   dependencies:
     "@aptre/it-ws" "^1.0.0"
-    "@aptre/protobuf-es-lite" "^0.4.3"
+    "@aptre/protobuf-es-lite" "^0.4.4"
     "@chainsafe/libp2p-yamux" "^6.0.2"
     "@libp2p/interface" "^1.3.1"
     "@libp2p/logger" "^4.0.12"
