@@ -8,7 +8,7 @@
     "build": "tsc --project tsconfig.build.json --outDir ./dist/",
     "check": "npm run typecheck",
     "typecheck": "tsc --noEmit",
-    "deps": "depcheck --ignore-patterns=.eslintrc.cjs,package.json --ignores depcheck,prettier,typescript,starpc,@aptre/common,@go/github.com",
+    "deps": "depcheck --ignore-patterns=.eslintrc.cjs,package.json --ignores depcheck,rimraf,prettier,typescript,starpc,@go/github.com,@aptre/common",
     "codegen": "npm run gen",
     "ci": "npm run build && npm run lint:js && npm run lint:go",
     "format": "npm run format:js && npm run format:go",
@@ -22,7 +22,7 @@
     "lint:go": "make lint",
     "lint:js": "ESLINT_USE_FLAT_CONFIG=false eslint -c .eslintrc.cjs ./",
     "precommit": "npm run format",
-    "prepare": "go mod vendor"
+    "prepare": "go mod vendor && rimraf ./.tools"
   },
   "prettier": {
     "semi": false,
@@ -32,6 +32,7 @@
     "@aptre/common": "^0.16.1",
     "depcheck": "^1.4.3",
     "prettier": "^3.0.3",
+    "rimraf": "^5.0.7",
     "typescript": "^5.2.2"
   },
   "dependencies": {
