@@ -2,22 +2,74 @@
 // @generated from file github.com/aperturerobotics/protobuf-project/example/other/other.proto (package other, syntax proto3)
 /* eslint-disable */
 
+import { EchoMsg } from './other.pb.js'
 import { Empty, Message, MethodKind } from '@aptre/protobuf-es-lite'
-import { ProtoRpc } from 'starpc'
+import {
+  buildDecodeMessageTransform,
+  buildEncodeMessageTransform,
+  MessageStream,
+  ProtoRpc,
+} from 'starpc'
 
 /**
- * AccessVolumes is a service to access available volumes over RPC.
+ * Echoer service returns the given message.
  *
- * @generated from service other.AccessVolumes
+ * @generated from service other.Echoer
  */
-export const AccessVolumesDefinition = {
-  typeName: 'other.AccessVolumes',
+export const EchoerDefinition = {
+  typeName: 'other.Echoer',
   methods: {
     /**
-     * @generated from rpc other.AccessVolumes.WatchVolumeInfo
+     * Echo returns the given message.
+     *
+     * @generated from rpc other.Echoer.Echo
      */
-    WatchVolumeInfo: {
-      name: 'WatchVolumeInfo',
+    Echo: {
+      name: 'Echo',
+      I: EchoMsg,
+      O: EchoMsg,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * EchoServerStream is an example of a server -> client one-way stream.
+     *
+     * @generated from rpc other.Echoer.EchoServerStream
+     */
+    EchoServerStream: {
+      name: 'EchoServerStream',
+      I: EchoMsg,
+      O: EchoMsg,
+      kind: MethodKind.ServerStreaming,
+    },
+    /**
+     * EchoClientStream is an example of client->server one-way stream.
+     *
+     * @generated from rpc other.Echoer.EchoClientStream
+     */
+    EchoClientStream: {
+      name: 'EchoClientStream',
+      I: EchoMsg,
+      O: EchoMsg,
+      kind: MethodKind.ClientStreaming,
+    },
+    /**
+     * EchoBidiStream is an example of a two-way stream.
+     *
+     * @generated from rpc other.Echoer.EchoBidiStream
+     */
+    EchoBidiStream: {
+      name: 'EchoBidiStream',
+      I: EchoMsg,
+      O: EchoMsg,
+      kind: MethodKind.BiDiStreaming,
+    },
+    /**
+     * DoNothing does nothing.
+     *
+     * @generated from rpc other.Echoer.DoNothing
+     */
+    DoNothing: {
+      name: 'DoNothing',
       I: Empty,
       O: Empty,
       kind: MethodKind.Unary,
@@ -26,41 +78,163 @@ export const AccessVolumesDefinition = {
 } as const
 
 /**
- * AccessVolumes is a service to access available volumes over RPC.
+ * Echoer service returns the given message.
  *
- * @generated from service other.AccessVolumes
+ * @generated from service other.Echoer
  */
-export interface AccessVolumes {
+export interface Echoer {
   /**
-   * @generated from rpc other.AccessVolumes.WatchVolumeInfo
+   * Echo returns the given message.
+   *
+   * @generated from rpc other.Echoer.Echo
    */
-  WatchVolumeInfo(
+  Echo(
+    request: Message<EchoMsg>,
+    abortSignal?: AbortSignal,
+  ): Promise<Message<EchoMsg>>
+
+  /**
+   * EchoServerStream is an example of a server -> client one-way stream.
+   *
+   * @generated from rpc other.Echoer.EchoServerStream
+   */
+  EchoServerStream(
+    request: Message<EchoMsg>,
+    abortSignal?: AbortSignal,
+  ): MessageStream<EchoMsg>
+
+  /**
+   * EchoClientStream is an example of client->server one-way stream.
+   *
+   * @generated from rpc other.Echoer.EchoClientStream
+   */
+  EchoClientStream(
+    request: MessageStream<EchoMsg>,
+    abortSignal?: AbortSignal,
+  ): Promise<Message<EchoMsg>>
+
+  /**
+   * EchoBidiStream is an example of a two-way stream.
+   *
+   * @generated from rpc other.Echoer.EchoBidiStream
+   */
+  EchoBidiStream(
+    request: MessageStream<EchoMsg>,
+    abortSignal?: AbortSignal,
+  ): MessageStream<EchoMsg>
+
+  /**
+   * DoNothing does nothing.
+   *
+   * @generated from rpc other.Echoer.DoNothing
+   */
+  DoNothing(
     request: Message<Empty>,
     abortSignal?: AbortSignal,
   ): Promise<Message<Empty>>
 }
 
-export const AccessVolumesServiceName = AccessVolumesDefinition.typeName
+export const EchoerServiceName = EchoerDefinition.typeName
 
-export class AccessVolumesClient implements AccessVolumes {
+export class EchoerClient implements Echoer {
   private readonly rpc: ProtoRpc
   private readonly service: string
   constructor(rpc: ProtoRpc, opts?: { service?: string }) {
-    this.service = opts?.service || AccessVolumesServiceName
+    this.service = opts?.service || EchoerServiceName
     this.rpc = rpc
-    this.WatchVolumeInfo = this.WatchVolumeInfo.bind(this)
+    this.Echo = this.Echo.bind(this)
+    this.EchoServerStream = this.EchoServerStream.bind(this)
+    this.EchoClientStream = this.EchoClientStream.bind(this)
+    this.EchoBidiStream = this.EchoBidiStream.bind(this)
+    this.DoNothing = this.DoNothing.bind(this)
   }
   /**
-   * @generated from rpc other.AccessVolumes.WatchVolumeInfo
+   * Echo returns the given message.
+   *
+   * @generated from rpc other.Echoer.Echo
    */
-  async WatchVolumeInfo(
+  async Echo(
+    request: Message<EchoMsg>,
+    abortSignal?: AbortSignal,
+  ): Promise<Message<EchoMsg>> {
+    const requestMsg = EchoMsg.create(request)
+    const result = await this.rpc.request(
+      this.service,
+      EchoerDefinition.methods.Echo.name,
+      EchoMsg.toBinary(requestMsg),
+      abortSignal || undefined,
+    )
+    return EchoMsg.fromBinary(result)
+  }
+
+  /**
+   * EchoServerStream is an example of a server -> client one-way stream.
+   *
+   * @generated from rpc other.Echoer.EchoServerStream
+   */
+  EchoServerStream(
+    request: Message<EchoMsg>,
+    abortSignal?: AbortSignal,
+  ): MessageStream<EchoMsg> {
+    const requestMsg = EchoMsg.create(request)
+    const result = this.rpc.serverStreamingRequest(
+      this.service,
+      EchoerDefinition.methods.EchoServerStream.name,
+      EchoMsg.toBinary(requestMsg),
+      abortSignal || undefined,
+    )
+    return buildDecodeMessageTransform(EchoMsg)(result)
+  }
+
+  /**
+   * EchoClientStream is an example of client->server one-way stream.
+   *
+   * @generated from rpc other.Echoer.EchoClientStream
+   */
+  async EchoClientStream(
+    request: MessageStream<EchoMsg>,
+    abortSignal?: AbortSignal,
+  ): Promise<Message<EchoMsg>> {
+    const result = await this.rpc.clientStreamingRequest(
+      this.service,
+      EchoerDefinition.methods.EchoClientStream.name,
+      buildEncodeMessageTransform(EchoMsg)(request),
+      abortSignal || undefined,
+    )
+    return EchoMsg.fromBinary(result)
+  }
+
+  /**
+   * EchoBidiStream is an example of a two-way stream.
+   *
+   * @generated from rpc other.Echoer.EchoBidiStream
+   */
+  EchoBidiStream(
+    request: MessageStream<EchoMsg>,
+    abortSignal?: AbortSignal,
+  ): MessageStream<EchoMsg> {
+    const result = this.rpc.bidirectionalStreamingRequest(
+      this.service,
+      EchoerDefinition.methods.EchoBidiStream.name,
+      buildEncodeMessageTransform(EchoMsg)(request),
+      abortSignal || undefined,
+    )
+    return buildDecodeMessageTransform(EchoMsg)(result)
+  }
+
+  /**
+   * DoNothing does nothing.
+   *
+   * @generated from rpc other.Echoer.DoNothing
+   */
+  async DoNothing(
     request: Message<Empty>,
     abortSignal?: AbortSignal,
   ): Promise<Message<Empty>> {
     const requestMsg = Empty.create(request)
     const result = await this.rpc.request(
       this.service,
-      AccessVolumesDefinition.methods.WatchVolumeInfo.name,
+      EchoerDefinition.methods.DoNothing.name,
       Empty.toBinary(requestMsg),
       abortSignal || undefined,
     )

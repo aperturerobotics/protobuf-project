@@ -2,6 +2,7 @@
 /coverage
 /build
 /.log
+/.tools
 /.snowpack
 
 # misc
@@ -24,3 +25,4 @@ yarn-error.log*
 
 vendor/
 debug.test
+.aider*

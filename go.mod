@@ -2,14 +2,19 @@ module github.com/aperturerobotics/protobuf-project
 
 go 1.22
 
+replace google.golang.org/protobuf => github.com/aperturerobotics/protobuf-go v1.33.1-0.20240411062030-e36f75e0a3b8 // aperture
+
 require (
-	github.com/aperturerobotics/protobuf-go-lite v0.6.1 // latest
-	github.com/aperturerobotics/starpc v0.32.2 // latest
-	github.com/aperturerobotics/util v1.23.0 // indirect
-	github.com/sirupsen/logrus v1.9.3
+	github.com/aperturerobotics/common v0.16.1 // latest
+	github.com/aperturerobotics/protobuf-go-lite v0.6.3 // latest
+	github.com/aperturerobotics/starpc v0.32.8 // latest
+	github.com/aperturerobotics/util v1.23.1 // indirect
 )
 
-require google.golang.org/protobuf v1.33.0
+require (
+	github.com/sirupsen/logrus v1.9.3
+	google.golang.org/protobuf v1.34.1
+)
 
 require (
 	github.com/aperturerobotics/json-iterator-lite v1.0.0 // indirect
@@ -32,7 +37,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	golang.org/x/crypto v0.19.0 // indirect
-	golang.org/x/exp v0.0.0-20240416160154-fe59bbe5cc7f // indirect
+	golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 // indirect
 	golang.org/x/sys v0.18.0 // indirect
 	lukechampine.com/blake3 v1.2.1 // indirect
 	nhooyr.io/websocket v1.8.11 // indirect

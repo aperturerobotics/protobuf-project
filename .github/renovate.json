@@ -7,11 +7,10 @@
     "workarounds:all"
   ],
   "branchConcurrentLimit": 0,
-  "ignorePaths": ["hack"],
   "packageRules": [
     {
       "matchManagers": ["gomod"],
-      "matchDepTypes": ["replace", "toolchain"],
+      "matchDepTypes": ["replace"],
       "enabled": false
     }
   ]

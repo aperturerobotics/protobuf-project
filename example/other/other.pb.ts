@@ -3,7 +3,12 @@
 /* eslint-disable */
 
 import type { MessageType, PartialFieldInfo } from '@aptre/protobuf-es-lite'
-import { createMessageType, Message, Timestamp } from '@aptre/protobuf-es-lite'
+import {
+  createMessageType,
+  Message,
+  ScalarType,
+  Timestamp,
+} from '@aptre/protobuf-es-lite'
 
 export const protobufPackage = 'other'
 
@@ -16,13 +21,35 @@ export type OtherMessage = Message<{
    *
    * @generated from field: google.protobuf.Timestamp timestamp = 1;
    */
-  timestamp?: Timestamp
+  timestamp?: Date
 }>
 
+// OtherMessage contains the message type declaration for OtherMessage.
 export const OtherMessage: MessageType<OtherMessage> = createMessageType({
   typeName: 'other.OtherMessage',
   fields: [
     { no: 1, name: 'timestamp', kind: 'message', T: () => Timestamp },
+  ] as readonly PartialFieldInfo[],
+  packedByDefault: true,
+})
+
+/**
+ * EchoMsg is the message body for Echo.
+ *
+ * @generated from message other.EchoMsg
+ */
+export type EchoMsg = Message<{
+  /**
+   * @generated from field: string body = 1;
+   */
+  body?: string
+}>
+
+// EchoMsg contains the message type declaration for EchoMsg.
+export const EchoMsg: MessageType<EchoMsg> = createMessageType({
+  typeName: 'other.EchoMsg',
+  fields: [
+    { no: 1, name: 'body', kind: 'scalar', T: ScalarType.STRING },
   ] as readonly PartialFieldInfo[],
   packedByDefault: true,
 })
