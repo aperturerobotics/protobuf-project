@@ -1,5 +1,7 @@
 github.com/aperturerobotics/common v0.16.4 h1:bX/gvpoc48jFbVsVRkZZt3j2rBxijt8iLAgunhM98+k=
 github.com/aperturerobotics/common v0.16.4/go.mod h1:CNUQ4LRn9e2zwKKrWMZiKoywhWV9+Wpn3QPn9uE2E7Y=
+github.com/aperturerobotics/common v0.16.12 h1:cNmbuPvMxaGdv/CnYdkF0HE6ZuwJj+Nwx6/lvGy1KSs=
+github.com/aperturerobotics/common v0.16.12/go.mod h1:CNUQ4LRn9e2zwKKrWMZiKoywhWV9+Wpn3QPn9uE2E7Y=
 github.com/aperturerobotics/json-iterator-lite v1.0.0 h1:cihbrYWoK/S2RYXhJLpDZd+GUjVvFJN+D3w1VOqqHRI=
 github.com/aperturerobotics/json-iterator-lite v1.0.0/go.mod h1:snaApCEDtrHHP6UWSLKiYNOZU9A5NyzccKenx9oZEzg=
 github.com/aperturerobotics/protobuf-go v1.33.1-0.20240411062030-e36f75e0a3b8 h1:Juij9Gj5jVOJjqiu3EGHWnX9nH6fkBeGGu/3U8i5qss=
@@ -8,8 +10,12 @@ github.com/aperturerobotics/protobuf-go-lite v0.6.5 h1:AuPPcZ7ZaJe9ZYYC4gF7/5/Xb
 github.com/aperturerobotics/protobuf-go-lite v0.6.5/go.mod h1:YTbfnUj3feSULhs8VgepAHFnF3wUc0CPj4jd2axy21I=
 github.com/aperturerobotics/starpc v0.32.9 h1:RVhpoLzY5SMz+9To4mg1sqO70LpWDLvRYCKJQnYKv/s=
 github.com/aperturerobotics/starpc v0.32.9/go.mod h1:V/wN7Y+OHchsdZ8DcTS1qSUVs7yWJZuaGA0g/aLiq1w=
+github.com/aperturerobotics/starpc v0.32.15 h1:DhGM6jp6NWGj+GsjHHad5aO3v0TAz3btMATzuxAzz7o=
+github.com/aperturerobotics/starpc v0.32.15/go.mod h1:yYc6X6YQLpCYF2xZ6Rwcr//tno9uhRi+RAuQpSv5VQU=
 github.com/aperturerobotics/util v1.23.1 h1:pEeBrN5UUNy83OFyv9d7BQod8O++j5ZwIkEuYGdpRXw=
 github.com/aperturerobotics/util v1.23.1/go.mod h1:dO8P8Ut5xNPpLrPPpn7kM/aJL+qT20C5Ppcs1GE0VNg=
+github.com/aperturerobotics/util v1.23.7 h1:DERV75zYLRn4BTS0vMFkitWJhUg7VGG5UyJq2Frf3iI=
+github.com/aperturerobotics/util v1.23.7/go.mod h1:wpjaPlljanWro3pyt7/9Ja0mvFH26XL6MKsJSzF8s2Q=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -17,6 +23,8 @@ github.com/decred/dcrd/crypto/blake256 v1.0.1 h1:7PltbUIQB7u/FfZ39+DGa/ShuMyJ5il
 github.com/decred/dcrd/crypto/blake256 v1.0.1/go.mod h1:2OfgNZ5wDpcsFmHmCK5gZTPcCXqlm2ArzUIkw9czNJo=
 github.com/decred/dcrd/dcrec/secp256k1/v4 v4.2.0 h1:8UrgZ3GkP4i/CLijOJx79Yu+etlyjdBU4sfcs2WYQMs=
 github.com/decred/dcrd/dcrec/secp256k1/v4 v4.2.0/go.mod h1:v57UDF4pDQJcEfFUCRop3lJL149eHGSe9Jvczhzjo/0=
+github.com/decred/dcrd/dcrec/secp256k1/v4 v4.3.0 h1:rpfIENRNNilwHwZeG5+P150SMrnNEcHYvcCuK6dPZSg=
+github.com/decred/dcrd/dcrec/secp256k1/v4 v4.3.0/go.mod h1:v57UDF4pDQJcEfFUCRop3lJL149eHGSe9Jvczhzjo/0=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
 github.com/ipfs/go-cid v0.4.1 h1:A/T3qGvxi4kpKWWcPC/PgbvDA2bjVLO7n4UeVwnbs/s=
@@ -27,6 +35,8 @@ github.com/libp2p/go-buffer-pool v0.1.0 h1:oK4mSFcQz7cTQIfqbe4MIj9gLW+mnanjyFtc6
 github.com/libp2p/go-buffer-pool v0.1.0/go.mod h1:N+vh8gMqimBzdKkSMVuydVDq+UV5QTWy5HSiZacSbPg=
 github.com/libp2p/go-libp2p v0.33.2 h1:vCdwnFxoGOXMKmaGHlDSnL4bM3fQeW8pgIa9DECnb40=
 github.com/libp2p/go-libp2p v0.33.2/go.mod h1:zTeppLuCvUIkT118pFVzA8xzP/p2dJYOMApCkFh0Yww=
+github.com/libp2p/go-libp2p v0.35.1 h1:Hm7Ub2BF+GCb14ojcsEK6WAy5it5smPDK02iXSZLl50=
+github.com/libp2p/go-libp2p v0.35.1/go.mod h1:Dnkgba5hsfSv5dvvXC8nfqk44hH0gIKKno+HOMU0fdc=
 github.com/libp2p/go-libp2p-testing v0.12.0 h1:EPvBb4kKMWO29qP4mZGyhVzUyR25dvfUIK5WDu6iPUA=
 github.com/libp2p/go-libp2p-testing v0.12.0/go.mod h1:KcGDRXyN7sQCllucn1cOOS+Dmm7ujhfEyXQL5lvkcPg=
 github.com/libp2p/go-yamux/v4 v4.0.2-0.20240322071716-53ef5820bd48 h1:KI65sCCL2h9IyCQwBhBXDgkKt3bmXoTu8T3rLVLZW4I=
@@ -41,6 +51,8 @@ github.com/multiformats/go-base36 v0.2.0 h1:lFsAbNOGeKtuKozrtBsAkSVhv1p9D0/qedU9
 github.com/multiformats/go-base36 v0.2.0/go.mod h1:qvnKE++v+2MWCfePClUEjE78Z7P2a1UV0xHgWc0hkp4=
 github.com/multiformats/go-multiaddr v0.12.3 h1:hVBXvPRcKG0w80VinQ23P5t7czWgg65BmIvQKjDydU8=
 github.com/multiformats/go-multiaddr v0.12.3/go.mod h1:sBXrNzucqkFJhvKOiwwLyqamGa/P5EIXNPLovyhQCII=
+github.com/multiformats/go-multiaddr v0.12.4 h1:rrKqpY9h+n80EwhhC/kkcunCZZ7URIF8yN1WEUt2Hvc=
+github.com/multiformats/go-multiaddr v0.12.4/go.mod h1:sBXrNzucqkFJhvKOiwwLyqamGa/P5EIXNPLovyhQCII=
 github.com/multiformats/go-multibase v0.2.0 h1:isdYCVLvksgWlMW9OZRYJEa9pZETFivncJHmHnnd87g=
 github.com/multiformats/go-multibase v0.2.0/go.mod h1:bFBZX4lKCA/2lyOFSAoKH5SS6oPyjtnzK/XTFDPkNuk=
 github.com/multiformats/go-multicodec v0.9.0 h1:pb/dlPnzee/Sxv/j4PmkDRxCOi3hXTz3IbPKOXWJkmg=
@@ -65,12 +77,18 @@ github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsT
 github.com/stretchr/testify v1.9.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 golang.org/x/crypto v0.19.0 h1:ENy+Az/9Y1vSrlrvBSyna3PITt4tiZLf7sgCjZBX7Wo=
 golang.org/x/crypto v0.19.0/go.mod h1:Iy9bg/ha4yyC70EfRS8jz+B6ybOBKMaSxLj6P6oBDfU=
+golang.org/x/crypto v0.23.0 h1:dIJU/v2J8Mdglj/8rJ6UUOM3Zc9zLZxVZwwxMooUSAI=
+golang.org/x/crypto v0.23.0/go.mod h1:CKFgDieR+mRhux2Lsu27y0fO304Db0wZe70UKqHu0v8=
 golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 h1:vr/HnozRka3pE4EsMEg1lgkXJkTFJCVUX+S/ZT6wYzM=
 golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842/go.mod h1:XtvwrStGgqGPLc4cjQfWqZHG1YFdYs6swckp8vpsjnc=
+golang.org/x/exp v0.0.0-20240613232115-7f521ea00fb8 h1:yixxcjnhBmY0nkL253HFVIm0JsFHwrHdT3Yh6szTnfY=
+golang.org/x/exp v0.0.0-20240613232115-7f521ea00fb8/go.mod h1:jj3sYF3dwk5D+ghuXyeI3r5MFf+NT2An6/9dOA95KSI=
 golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.5.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.18.0 h1:DBdB3niSjOA/O0blCZBqDefyWNYveAYMNF1Wum0DYQ4=
 golang.org/x/sys v0.18.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
+golang.org/x/sys v0.20.0 h1:Od9JTbYCk261bKm4M/mw7AklTlFYIa0bIp9BgSm1S8Y=
+golang.org/x/sys v0.20.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
