@@ -2,6 +2,8 @@ github.com/aperturerobotics/common v0.16.4 h1:bX/gvpoc48jFbVsVRkZZt3j2rBxijt8iLA
 github.com/aperturerobotics/common v0.16.4/go.mod h1:CNUQ4LRn9e2zwKKrWMZiKoywhWV9+Wpn3QPn9uE2E7Y=
 github.com/aperturerobotics/common v0.16.12 h1:cNmbuPvMxaGdv/CnYdkF0HE6ZuwJj+Nwx6/lvGy1KSs=
 github.com/aperturerobotics/common v0.16.12/go.mod h1:CNUQ4LRn9e2zwKKrWMZiKoywhWV9+Wpn3QPn9uE2E7Y=
+github.com/aperturerobotics/common v0.18.3 h1:DicdT7Yi9xlHMgJOiH1ypkRGt/TOctWWgVfdgh4p+H4=
+github.com/aperturerobotics/common v0.18.3/go.mod h1:qLWqm2T9MQmxDtE1ddNdWCHnUj1Z66GzNxllkZ3Fj7Y=
 github.com/aperturerobotics/json-iterator-lite v1.0.0 h1:cihbrYWoK/S2RYXhJLpDZd+GUjVvFJN+D3w1VOqqHRI=
 github.com/aperturerobotics/json-iterator-lite v1.0.0/go.mod h1:snaApCEDtrHHP6UWSLKiYNOZU9A5NyzccKenx9oZEzg=
 github.com/aperturerobotics/protobuf-go v1.33.1-0.20240411062030-e36f75e0a3b8 h1:Juij9Gj5jVOJjqiu3EGHWnX9nH6fkBeGGu/3U8i5qss=
@@ -12,10 +14,14 @@ github.com/aperturerobotics/starpc v0.32.9 h1:RVhpoLzY5SMz+9To4mg1sqO70LpWDLvRYC
 github.com/aperturerobotics/starpc v0.32.9/go.mod h1:V/wN7Y+OHchsdZ8DcTS1qSUVs7yWJZuaGA0g/aLiq1w=
 github.com/aperturerobotics/starpc v0.32.15 h1:DhGM6jp6NWGj+GsjHHad5aO3v0TAz3btMATzuxAzz7o=
 github.com/aperturerobotics/starpc v0.32.15/go.mod h1:yYc6X6YQLpCYF2xZ6Rwcr//tno9uhRi+RAuQpSv5VQU=
+github.com/aperturerobotics/starpc v0.33.8 h1:MHzG9OhYx43g3lsWTw/HQJqG+jPhXUgnrG1d/sasajk=
+github.com/aperturerobotics/starpc v0.33.8/go.mod h1:U2Shid7XklzmLroUoParSrghpFhxfY/N3vlHqT4tvBE=
 github.com/aperturerobotics/util v1.23.1 h1:pEeBrN5UUNy83OFyv9d7BQod8O++j5ZwIkEuYGdpRXw=
 github.com/aperturerobotics/util v1.23.1/go.mod h1:dO8P8Ut5xNPpLrPPpn7kM/aJL+qT20C5Ppcs1GE0VNg=
 github.com/aperturerobotics/util v1.23.7 h1:DERV75zYLRn4BTS0vMFkitWJhUg7VGG5UyJq2Frf3iI=
 github.com/aperturerobotics/util v1.23.7/go.mod h1:wpjaPlljanWro3pyt7/9Ja0mvFH26XL6MKsJSzF8s2Q=
+github.com/aperturerobotics/util v1.25.7 h1:e9fdF3W/E7IHdl7YAJC0jjuxGph7yzE3a5zZoLFJ3G0=
+github.com/aperturerobotics/util v1.25.7/go.mod h1:G5ybyxaL62Rdv0K5ZGqu+D1NfqlZCLYPQhdfiYhxlAg=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -37,6 +43,8 @@ github.com/libp2p/go-libp2p v0.33.2 h1:vCdwnFxoGOXMKmaGHlDSnL4bM3fQeW8pgIa9DECnb
 github.com/libp2p/go-libp2p v0.33.2/go.mod h1:zTeppLuCvUIkT118pFVzA8xzP/p2dJYOMApCkFh0Yww=
 github.com/libp2p/go-libp2p v0.35.1 h1:Hm7Ub2BF+GCb14ojcsEK6WAy5it5smPDK02iXSZLl50=
 github.com/libp2p/go-libp2p v0.35.1/go.mod h1:Dnkgba5hsfSv5dvvXC8nfqk44hH0gIKKno+HOMU0fdc=
+github.com/libp2p/go-libp2p v0.35.4 h1:FDiBUYLkueFwsuNJUZaxKRdpKvBOWU64qQPL768bSeg=
+github.com/libp2p/go-libp2p v0.35.4/go.mod h1:RKCDNt30IkFipGL0tl8wQW/3zVWEGFUZo8g2gAKxwjU=
 github.com/libp2p/go-libp2p-testing v0.12.0 h1:EPvBb4kKMWO29qP4mZGyhVzUyR25dvfUIK5WDu6iPUA=
 github.com/libp2p/go-libp2p-testing v0.12.0/go.mod h1:KcGDRXyN7sQCllucn1cOOS+Dmm7ujhfEyXQL5lvkcPg=
 github.com/libp2p/go-yamux/v4 v4.0.2-0.20240322071716-53ef5820bd48 h1:KI65sCCL2h9IyCQwBhBXDgkKt3bmXoTu8T3rLVLZW4I=
@@ -83,6 +91,8 @@ golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 h1:vr/HnozRka3pE4EsMEg1lgkXJ
 golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842/go.mod h1:XtvwrStGgqGPLc4cjQfWqZHG1YFdYs6swckp8vpsjnc=
 golang.org/x/exp v0.0.0-20240613232115-7f521ea00fb8 h1:yixxcjnhBmY0nkL253HFVIm0JsFHwrHdT3Yh6szTnfY=
 golang.org/x/exp v0.0.0-20240613232115-7f521ea00fb8/go.mod h1:jj3sYF3dwk5D+ghuXyeI3r5MFf+NT2An6/9dOA95KSI=
+golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56 h1:2dVuKD2vS7b0QIHQbpyTISPd0LeHDbnYEryqj5Q1ug8=
+golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56/go.mod h1:M4RDyNAINzryxdtnbRXRL/OHtkFuWGRjvuhBJpk2IlY=
 golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.5.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.18.0 h1:DBdB3niSjOA/O0blCZBqDefyWNYveAYMNF1Wum0DYQ4=
