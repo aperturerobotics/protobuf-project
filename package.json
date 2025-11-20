@@ -29,15 +29,15 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@aptre/common": "^0.16.1",
+    "@aptre/common": "^0.22.0",
     "depcheck": "^1.4.3",
     "prettier": "^3.0.3",
-    "rimraf": "^5.0.7",
+    "rimraf": "^6.0.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
     "@aptre/it-ws": "^1.0.0",
-    "@aptre/protobuf-es-lite": "^0.4.3",
-    "starpc": "^0.32.8"
+    "@aptre/protobuf-es-lite": "^0.5.0",
+    "starpc": "^0.39.0"
   }
 }
