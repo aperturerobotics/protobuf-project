@@ -5,7 +5,7 @@ This template uses [protobuf-go-lite] to generate reflection-free Go code and [p
 [protobuf-go-lite]: https://github.com/aperturerobotics/protobuf-go-lite
 [protobuf-es-lite]: https://github.com/aperturerobotics/protobuf-es-lite
 
-Uses a Makefile to download tools to ./hack/bin.
+Uses the `aptre` CLI to download tools and generate code.
 
 Includes targets for linting, checking outdated modules, etc.
 
@@ -39,37 +39,40 @@ To generate the protobuf files:
 
 ```bash
 $ git add -A
-$ yarn install
-$ yarn gen
+$ bun install
+$ bun run gen
 ```
 
-The Makefile will download the tools using Go to a bin dir.
+## Commands
 
-## Makefile
+The `aptre` CLI replaces Make for building Go projects with protobuf support.
 
-The available make targets are:
+Available bun scripts:
 
- - `genproto`: Generate protobuf files.
- - `test`: run go test -v ./...
- - `lint`: run golangci-lint on the project.
- - `fix`: run golangci-lint --fix on the project.
- - `list`: list go module dependencies
- - `outdated`: list outdated go module dependencies
+| Command             | Description                                  |
+| ------------------- | -------------------------------------------- |
+| `bun run gen`       | Generate protobuf code (Go, TypeScript, C++) |
+| `bun run gen:force` | Force regenerate all protobuf files          |
+| `bun run test`      | Run all tests (Go + JS)                      |
+| `bun run lint`      | Run linters (Go + JS)                        |
+| `bun run lint:go`   | Run golangci-lint                            |
+| `bun run lint:js`   | Run ESLint on TypeScript                     |
+| `bun run format`    | Format all code (Go + JS)                    |
 
 To generate the TypeScript and Go code:
 
- - `yarn install`
- - `yarn gen`
+- `bun install`
+- `bun run gen`
 
 ## Branches
 
 Other available branches:
 
- - **norpc**: does not have any RPC library.
- - **drpc**: uses the [dRPC] rpc library instead of [starpc].
- - **grpc**: uses the [gRPC] rpc library instead of [starpc].
- - **starpc**: uses the [starpc] rpc library (same as main).
- - **twirp**: uses the [Twirp] rpc library instead of [starpc].
+- **norpc**: does not have any RPC library.
+- **drpc**: uses the [dRPC] rpc library instead of [starpc].
+- **grpc**: uses the [gRPC] rpc library instead of [starpc].
+- **starpc**: uses the [starpc] rpc library (same as main).
+- **twirp**: uses the [Twirp] rpc library instead of [starpc].
 
 [dRPC]: https://github.com/storj/drpc
 [gRPC]: https://github.com/grpc/grpc
@@ -80,25 +83,12 @@ Other available branches:
 
 **This branch implements a starpc service and demo.**
 
-To run the demo: **yarn** then **yarn run demo**.
+To run the demo: **bun install** then **bun run demo**.
 
 ## Developing on MacOS
 
-On MacOS, some homebrew packages are required for `yarn gen`:
-
-```
-brew install bash make coreutils gnu-sed findutils protobuf
-brew link --overwrite protobuf
-```
-
-Add to your .bashrc or .zshrc:
-
-```
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
-```
+On MacOS, the `aptre` CLI handles all protobuf generation without requiring
+additional homebrew packages. Just run `bun run gen` after installing bun.
 
 ## Support
 

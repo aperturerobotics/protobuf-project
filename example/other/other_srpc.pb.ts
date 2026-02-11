@@ -3,7 +3,8 @@
 /* eslint-disable */
 
 import { EchoMsg } from './other.pb.js'
-import { Empty, Message, MethodKind } from '@aptre/protobuf-es-lite'
+import { MethodKind } from '@aptre/protobuf-es-lite'
+import { Empty } from '@aptre/protobuf-es-lite/google/protobuf/empty'
 import {
   buildDecodeMessageTransform,
   buildEncodeMessageTransform,
@@ -88,10 +89,7 @@ export interface Echoer {
    *
    * @generated from rpc other.Echoer.Echo
    */
-  Echo(
-    request: Message<EchoMsg>,
-    abortSignal?: AbortSignal,
-  ): Promise<Message<EchoMsg>>
+  Echo(request: EchoMsg, abortSignal?: AbortSignal): Promise<EchoMsg>
 
   /**
    * EchoServerStream is an example of a server -> client one-way stream.
@@ -99,7 +97,7 @@ export interface Echoer {
    * @generated from rpc other.Echoer.EchoServerStream
    */
   EchoServerStream(
-    request: Message<EchoMsg>,
+    request: EchoMsg,
     abortSignal?: AbortSignal,
   ): MessageStream<EchoMsg>
 
@@ -111,7 +109,7 @@ export interface Echoer {
   EchoClientStream(
     request: MessageStream<EchoMsg>,
     abortSignal?: AbortSignal,
-  ): Promise<Message<EchoMsg>>
+  ): Promise<EchoMsg>
 
   /**
    * EchoBidiStream is an example of a two-way stream.
@@ -128,10 +126,7 @@ export interface Echoer {
    *
    * @generated from rpc other.Echoer.DoNothing
    */
-  DoNothing(
-    request: Message<Empty>,
-    abortSignal?: AbortSignal,
-  ): Promise<Message<Empty>>
+  DoNothing(request: Empty, abortSignal?: AbortSignal): Promise<Empty>
 }
 
 export const EchoerServiceName = EchoerDefinition.typeName
@@ -153,10 +148,7 @@ export class EchoerClient implements Echoer {
    *
    * @generated from rpc other.Echoer.Echo
    */
-  async Echo(
-    request: Message<EchoMsg>,
-    abortSignal?: AbortSignal,
-  ): Promise<Message<EchoMsg>> {
+  async Echo(request: EchoMsg, abortSignal?: AbortSignal): Promise<EchoMsg> {
     const requestMsg = EchoMsg.create(request)
     const result = await this.rpc.request(
       this.service,
@@ -173,7 +165,7 @@ export class EchoerClient implements Echoer {
    * @generated from rpc other.Echoer.EchoServerStream
    */
   EchoServerStream(
-    request: Message<EchoMsg>,
+    request: EchoMsg,
     abortSignal?: AbortSignal,
   ): MessageStream<EchoMsg> {
     const requestMsg = EchoMsg.create(request)
@@ -194,7 +186,7 @@ export class EchoerClient implements Echoer {
   async EchoClientStream(
     request: MessageStream<EchoMsg>,
     abortSignal?: AbortSignal,
-  ): Promise<Message<EchoMsg>> {
+  ): Promise<EchoMsg> {
     const result = await this.rpc.clientStreamingRequest(
       this.service,
       EchoerDefinition.methods.EchoClientStream.name,
@@ -227,10 +219,7 @@ export class EchoerClient implements Echoer {
    *
    * @generated from rpc other.Echoer.DoNothing
    */
-  async DoNothing(
-    request: Message<Empty>,
-    abortSignal?: AbortSignal,
-  ): Promise<Message<Empty>> {
+  async DoNothing(request: Empty, abortSignal?: AbortSignal): Promise<Empty> {
     const requestMsg = Empty.create(request)
     const result = await this.rpc.request(
       this.service,

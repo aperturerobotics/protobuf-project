@@ -19,7 +19,7 @@ func main() {
 	}
 
 	// listen at: ws://localhost:5050/demo
-	server, err := srpc.NewHTTPServer(mux, "/demo")
+	server, err := srpc.NewHTTPServer(mux, "/demo", nil)
 	if err != nil {
 		logrus.Fatal(err.Error())
 	}

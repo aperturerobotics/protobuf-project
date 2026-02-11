@@ -4,6 +4,7 @@
 package template
 
 import (
-	// _ imports common with the Makefile and tools
+	// _ imports common with the tools like protoc
 	_ "github.com/aperturerobotics/common"
+	_ "github.com/aperturerobotics/common/cmd/aptre"
 )

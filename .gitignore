@@ -3,7 +3,7 @@
 /build
 /.log
 /.tools
-/.snowpack
+/.aider*
 
 # misc
 .DS_Store
@@ -17,12 +17,12 @@ yarn-debug.log*
 yarn-error.log*
 
 .#*
+debug.test*
+__debug*
+*.test
 /dist
 .*.swp
 .vs/
 .vscode/
 !.vscode/launch.json
-
-vendor/
-debug.test
-.aider*
+/vendor/

@@ -6,30 +6,31 @@
   "type": "module",
   "scripts": {
     "build": "tsc --project tsconfig.build.json --outDir ./dist/",
-    "check": "npm run typecheck",
+    "check": "bun run typecheck",
     "typecheck": "tsc --noEmit",
-    "deps": "depcheck --ignore-patterns=.eslintrc.cjs,package.json --ignores depcheck,rimraf,prettier,typescript,starpc,@go/github.com,@aptre/common",
-    "codegen": "npm run gen",
-    "ci": "npm run build && npm run lint:js && npm run lint:go",
-    "format": "npm run format:js && npm run format:go",
+    "deps": "depcheck --ignore-patterns=package.json --ignores depcheck,rimraf,prettier,typescript,starpc,@go/github.com,@aptre/common,@eslint/js,@typescript-eslint/eslint-plugin,eslint-config-prettier,eslint-plugin-react-hooks,eslint-plugin-unused-imports,globals",
+    "codegen": "bun run gen",
+    "ci": "bun run build && bun run lint:js && bun run lint:go",
+    "format": "bun run format:js && bun run format:go",
     "format:js": "prettier --write './!(vendor|dist)/**/(*.ts|*.tsx|*.js|*.html|*.css)'",
-    "format:go": "make format",
-    "gen": "make genproto",
-    "test": "make test && npm run check",
+    "format:go": "bun run go:aptre -- format",
+    "gen": "bun run go:aptre -- generate",
+    "gen:force": "bun run go:aptre -- generate --force",
+    "test": "bun run go:aptre -- test && bun run check",
     "test:js": "echo No JS tests.",
-    "demo": "make demo",
-    "lint": "npm run lint:go && npm run lint:js",
-    "lint:go": "make lint",
-    "lint:js": "ESLINT_USE_FLAT_CONFIG=false eslint -c .eslintrc.cjs ./",
-    "precommit": "npm run format",
-    "prepare": "go mod vendor && rimraf ./.tools"
+    "lint": "bun run lint:go && bun run lint:js",
+    "lint:go": "bun run go:aptre -- lint",
+    "lint:js": "eslint ./",
+    "precommit": "bun run format",
+    "prepare": "go mod vendor && rimraf ./.tools",
+    "go:aptre": "go run -mod=mod github.com/aperturerobotics/common/cmd/aptre"
   },
   "prettier": {
     "semi": false,
     "singleQuote": true
   },
   "devDependencies": {
-    "@aptre/common": "^0.16.1",
+    "@aptre/common": "^0.30.3",
     "depcheck": "^1.4.3",
     "prettier": "^3.0.3",
     "rimraf": "^5.0.7",
@@ -37,7 +38,10 @@
   },
   "dependencies": {
     "@aptre/it-ws": "^1.0.0",
-    "@aptre/protobuf-es-lite": "^0.4.3",
-    "starpc": "^0.32.8"
+    "@aptre/protobuf-es-lite": "^0.5.3",
+    "starpc": "^0.46.2"
+  },
+  "resolutions": {
+    "@aptre/protobuf-es-lite": "^0.5.0"
   }
 }
