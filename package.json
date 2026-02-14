@@ -33,7 +33,7 @@
     "@aptre/common": "^0.30.3",
     "depcheck": "^1.4.3",
     "prettier": "^3.0.3",
-    "rimraf": "^5.0.7",
+    "rimraf": "^6.0.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {

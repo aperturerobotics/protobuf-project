@@ -19,7 +19,7 @@ require (
 )
 
 require (
-	github.com/aperturerobotics/common v0.30.3
+	github.com/aperturerobotics/common v0.30.6
 	github.com/sirupsen/logrus v1.9.4
 )
 
