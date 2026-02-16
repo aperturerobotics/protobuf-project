@@ -85,11 +85,6 @@ Other available branches:
 
 To run the demo: **bun install** then **bun run demo**.
 
-## Developing on MacOS
-
-On MacOS, the `aptre` CLI handles all protobuf generation without requiring
-additional homebrew packages. Just run `bun run gen` after installing bun.
-
 ## Support
 
 Please open a [GitHub issue] with any questions / issues.
