@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "protocFlagsHash": "5836379620b5d028a388f373b7e73655f319553ef90c9062aae2d311a69f973c",
-  "toolVersions": "protoc=embedded,protobuf-go-lite=v0.12.1,starpc=v0.46.1,protobuf-es-lite=^0.5.3",
+  "protocFlagsHash": "a620df7e1d9eeb45b090aef4bf118c45fa86398ea26cba00f10ab385c926e662",
+  "toolVersions": "protoc=embedded,protobuf-go-lite=v0.12.1,starpc=v0.46.1,protobuf-es-lite=^1.0.1",
   "packages": {
     "github.com/aperturerobotics/protobuf-project/example/other": {
       "hash": "d77ae0aa83abf4e07224b76898d00542104c1aecc2dbb781b54238a4f59af739",
       "generatedFiles": [
+        "example/other/other.pb.h",
+        "example/other/other.pb.ts",
+        "example/other/other_srpc.pb.go",
         "example/other/other_srpc.pb.rs",
+        "example/other/other_srpc.pb.ts",
         "example/other/other.pb.cc",
         "example/other/other.pb.go",
-        "example/other/other_srpc.pb.cpp",
-        "example/other/other_srpc.pb.go",
-        "example/other/other_srpc.pb.ts",
-        "example/other/other.pb.h",
         "example/other/other.pb.rs",
-        "example/other/other.pb.ts",
+        "example/other/other_srpc.pb.cpp",
         "example/other/other_srpc.pb.hpp"
       ],
       "protoFiles": [
