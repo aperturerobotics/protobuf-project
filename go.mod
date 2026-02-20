@@ -13,13 +13,13 @@ replace (
 )
 
 require (
-	github.com/aperturerobotics/protobuf-go-lite v0.12.1 // latest
+	github.com/aperturerobotics/protobuf-go-lite v0.12.2 // latest
 	github.com/aperturerobotics/starpc v0.46.2 // latest
 	github.com/aperturerobotics/util v1.32.3 // indirect
 )
 
 require (
-	github.com/aperturerobotics/common v0.30.3
+	github.com/aperturerobotics/common v0.30.6
 	github.com/sirupsen/logrus v1.9.4
 )
 
