@@ -12,7 +12,7 @@ require (
 
 require (
 	github.com/aperturerobotics/common v0.30.7
-	github.com/sirupsen/logrus v1.9.4
+	github.com/sirupsen/logrus v1.9.5-0.20260226151524-34027eac4204
 )
 
 require (
