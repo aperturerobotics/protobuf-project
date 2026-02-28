@@ -6,20 +6,20 @@ replace google.golang.org/protobuf => github.com/aperturerobotics/protobuf-go v1
 
 require (
 	github.com/aperturerobotics/protobuf-go-lite v0.12.2 // latest
-	github.com/aperturerobotics/starpc v0.47.2-0.20260228105112-f1337c4314e9 // latest
+	github.com/aperturerobotics/starpc v0.48.0 // latest
 	github.com/aperturerobotics/util v1.32.4 // indirect
 )
 
 require (
-	github.com/aperturerobotics/common v0.30.7
-	github.com/sirupsen/logrus v1.9.5-0.20260226151524-34027eac4204
+	github.com/aperturerobotics/common v0.32.0
+	github.com/sirupsen/logrus v1.9.5-0.20260227125846-00992ca6ba06
 )
 
 require (
 	github.com/aperturerobotics/abseil-cpp v0.0.0-20260131110040-4bb56e2f9017 // indirect
 	github.com/aperturerobotics/cli v1.1.0 // indirect
-	github.com/aperturerobotics/go-protoc-gen-prost v0.0.0-20260204215916-dc1f0fed8cfc // indirect
-	github.com/aperturerobotics/go-protoc-wasi v0.0.0-20260131050911-b5f94b044584 // indirect
+	github.com/aperturerobotics/go-protoc-gen-prost v0.0.0-20260219012250-e75aa9f430a2 // indirect
+	github.com/aperturerobotics/go-protoc-wasi v0.0.0-20260219012250-c573f70e4509 // indirect
 	github.com/aperturerobotics/go-websocket v1.8.15-0.20260228104546-35e37959349c // indirect
 	github.com/aperturerobotics/json-iterator-lite v1.0.1-0.20251104042408-0c9eb8a3f726 // indirect
 	github.com/aperturerobotics/protobuf v0.0.0-20260203024654-8201686529c4 // indirect
