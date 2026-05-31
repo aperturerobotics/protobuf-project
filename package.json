@@ -38,11 +38,14 @@
   },
   "dependencies": {
     "@aptre/it-ws": "^1.0.0",
-    "@aptre/protobuf-es-lite": "^1.0.1",
+    "@aptre/protobuf-es-lite": "1.1.0",
     "@eslint/js": "^10.0.1",
     "starpc": "^0.47.1"
   },
   "resolutions": {
-    "@aptre/protobuf-es-lite": "1.0.1"
+    "@aptre/protobuf-es-lite": "1.1.0"
+  },
+  "overrides": {
+    "@aptre/protobuf-es-lite": "1.1.0"
   }
 }
