@@ -20,6 +20,8 @@ github.com/aperturerobotics/protobuf-go v1.33.1-0.20240411062030-e36f75e0a3b8 h1
 github.com/aperturerobotics/protobuf-go v1.33.1-0.20240411062030-e36f75e0a3b8/go.mod h1:c6P6GXX6sHbq/GpV6MGZEdwhWPcYBgnhAHhKbcUYpos=
 github.com/aperturerobotics/protobuf-go-lite v0.19.1-0.20261018054529-f60c4d2691ea h1:f89jyQUhn8E/KrTz1C2eOmp23DvYgnTt/vm8aijdShc=
 github.com/aperturerobotics/protobuf-go-lite v0.19.1-0.20261018054529-f60c4d2691ea/go.mod h1:3Ay/E7iaw2KWLirK3+dDdNJZHK0hu8Y1/kKeYeUa+8s=
+github.com/aperturerobotics/protobuf-go-lite v0.19.1-0.20261024022728-f0dcc8ef200f h1:ZJvr1TzXngz5j4lus9z5r1WlFkzGKmEnDxFLSNyuMUI=
+github.com/aperturerobotics/protobuf-go-lite v0.19.1-0.20261024022728-f0dcc8ef200f/go.mod h1:3Ay/E7iaw2KWLirK3+dDdNJZHK0hu8Y1/kKeYeUa+8s=
 github.com/aperturerobotics/starpc v0.52.3 h1:kLm9KdmIlw5MuQNMyxGI3pVNOKv10zPGyBXQfh2sxeQ=
 github.com/aperturerobotics/starpc v0.52.3/go.mod h1:RuRFctJOFKaEqxvTufdpGR4r7uiW2Z0wta2iIJkyL0Q=
 github.com/aperturerobotics/util v1.34.10-0.20260802062101-496aab6cefd2 h1:fIAb1MvcrFtw/6Bqg+mjOqiHjHPPcljvM53Sm8g/e5s=

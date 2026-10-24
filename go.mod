@@ -6,7 +6,7 @@ replace google.golang.org/protobuf => github.com/aperturerobotics/protobuf-go v1
 
 require (
 	github.com/aperturerobotics/common v0.36.5
-	github.com/aperturerobotics/protobuf-go-lite v0.19.1-0.20261018054529-f60c4d2691ea // latest
+	github.com/aperturerobotics/protobuf-go-lite v0.19.1-0.20261024022728-f0dcc8ef200f // latest
 	github.com/aperturerobotics/starpc v0.52.3 // latest
 	github.com/sirupsen/logrus v1.10.2
 )
