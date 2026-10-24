@@ -4,14 +4,12 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "jsx": "react",
-    "baseUrl": "./",
     "paths": {
-      "@go/*": ["vendor/*"]
+      "@go/*": ["./vendor/*"]
     },
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
-    "importsNotUsedAsValues": "remove",
     "noEmit": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
