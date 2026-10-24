@@ -22,7 +22,6 @@ require (
 	github.com/aperturerobotics/protobuf v0.0.0-20260203024654-8201686529c4 // indirect
 	github.com/aperturerobotics/util v1.34.10-0.20260802062101-496aab6cefd2 // indirect
 	github.com/libp2p/go-buffer-pool v0.1.0 // indirect
-	github.com/libp2p/go-yamux/v4 v4.0.2 // indirect
 	github.com/libp2p/go-yamux/v5 v5.1.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/tetratelabs/wazero v1.12.0 // indirect
