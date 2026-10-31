@@ -30,7 +30,7 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@aptre/common": "^0.36.0",
+    "@aptre/common": "^0.37.0",
     "depcheck": "^1.4.3",
     "oxlint": "^1.76.0",
     "prettier": "^3.0.3",
